@@ -4,28 +4,28 @@ const INITIAL_STATE = {
       id: 1,
       date: 'Today',
       business: 'Pharmacy',
-      appointmentNumber: 234234,
+      appointmentNumber: '234234',
       appointmentCountdown: 23
     },
     {
       id: 2,
       date: 'Today',
       business: 'Supermarket',
-      appointmentNumber: 234354,
+      appointmentNumber: '2B4354',
       appointmentCountdown: 322
     },
     {
       id: 3,
       date: 'Tomorrow',
       business: 'Cinema',
-      appointmentNumber: 234354,
+      appointmentNumber: '234354',
       appointmentCountdown: 322
     },
     {
       id: 4,
       date: 'Tomorrow',
       business: 'Pool',
-      appointmentNumber: 234354,
+      appointmentNumber: '234354',
       appointmentCountdown: 322
     }
   ]

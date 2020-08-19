@@ -3,20 +3,22 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import RoundedButton from './RoundedButton';
 
-it('renders correctly', () => {
-  const tree = renderer.create(<RoundedButton />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+describe('<RoundedButton />', () => {
+  it('renders correctly', async () => {
+    const button = renderer.create(<RoundedButton label="test" />).toJSON();
+    expect(button).toMatchSnapshot();
+  });
 
-it('can press button', () => {
-  const onPress = jest.fn();
-  const button = shallow(<RoundedButton onPress={onPress} />);
-  button.dive().simulate('press');
-  expect(onPress).toHaveBeenCalled();
-});
+  it('can press button', async () => {
+    const onPress = jest.fn();
+    const button = shallow(<RoundedButton label="test" onPress={onPress} />);
+    button.dive().simulate('press');
+    expect(onPress).toHaveBeenCalled();
+  });
 
-it('has label', () => {
-  const button = shallow(<RoundedButton label={'algo'} />);
-  const text = button.childAt(0);
-  expect(text.text()).toEqual();
+  it('renders the passed label', async () => {
+    const button = shallow(<RoundedButton label="test" />);
+    const text = button.childAt(0);
+    expect(text.contains('test')).toBe(true);
+  });
 });

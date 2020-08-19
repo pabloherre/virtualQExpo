@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import RoundedButton from '../../common/buttons/RoundedButton/RoundedButton';
-import TextInput from '../../common/inputs/TextInput/TextInput';
+import { RoundedButton } from '../../common/buttons';
+import { TextInput } from '../../common/inputs';
 import { AsyncStorage, Button, Image, View } from 'react-native';
 import styles from './RegisterView.styles';
 import { setUser } from '../../modules/auth/Auth.actions';

@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import {TouchableOpacity, Text} from 'react-native';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { TouchableOpacity, Text } from 'react-native';
+import styles from './RoundedButton.styles';
 
 class RoundedButton extends Component {
   constructor(props) {
@@ -7,28 +9,18 @@ class RoundedButton extends Component {
   }
 
   render() {
+    const { label, onPress, ...rest } = this.props;
     return (
-      <TouchableOpacity style={styles.button} {...this.props}>
-        <Text style={styles.buttonText}>{this.props.label}</Text>
+      <TouchableOpacity style={styles.button} onPress={onPress} {...rest}>
+        <Text style={styles.buttonText}>{label}</Text>
       </TouchableOpacity>
     );
   }
 }
 
-const styles = {
-  button: {
-    backgroundColor: '#F77027',
-    borderRadius: 30,
-    paddingTop: 10,
-    paddingBottom: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 60,
-  },
-  buttonText: {
-    fontSize: 20,
-    color: 'white',
-  },
+RoundedButton.propTypes = {
+  label: PropTypes.string.isRequired,
+  onPress: PropTypes.func
 };
 
 export default RoundedButton;

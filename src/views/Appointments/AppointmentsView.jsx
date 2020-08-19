@@ -18,10 +18,10 @@ class AppointmentsView extends Component {
     return (
       <>
         <SafeAreaView style={styles.container}>
-          <FlatList data={appointments} renderItem={({ item }) => <AppointmentCard appointment={item} />} keyExtractor={item => item.id} />
+          <FlatList data={appointments} renderItem={({ item }) => <AppointmentCard appointment={item} />} keyExtractor={item => item.id.toString()} />
         </SafeAreaView>
         <RoundedButton
-          label="Clear Storage 3"
+          label="Clear storage"
           onPress={async () => {
             this.props.logout();
             await AsyncStorage.removeItem('user');

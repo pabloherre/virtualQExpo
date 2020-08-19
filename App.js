@@ -11,10 +11,10 @@ import RegisterView from './src/views/Register/RegisterView';
 import AppointmentsView from './src/views/Appointments/AppointmentsView';
 import store from './src/setup/store';
 import LoginView from './src/views/Login/LoginView';
+import checkAuthentication from './src/modules/auth/components/CheckAuthentication';
 
 const Stack = createStackNavigator();
 const theme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: '#fff' } };
-
 export default function App() {
   return (
     <Provider store={store}>

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth actions should create an action to logout 1`] = `
+Object {
+  "type": "LOGOUT",
+}
+`;
+
+exports[`Auth actions should create an action to setUser 1`] = `
+Object {
+  "payload": Object {
+    "email": "test@user.com",
+    "name": "test user",
+  },
+  "type": "SET_USER",
+}
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`<RoundedButton /> renders correctly 1`] = `
 <View
   accessible={true}
   focusable={false}
@@ -31,6 +31,8 @@ exports[`renders correctly 1`] = `
         "fontSize": 20,
       }
     }
-  />
+  >
+    test
+  </Text>
 </View>
 `;

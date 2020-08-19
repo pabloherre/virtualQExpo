@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth Reducer should handle LOGOUT action 1`] = `
+Object {
+  "isLoggedIn": false,
+  "loggedUser": null,
+}
+`;
+
+exports[`Auth Reducer should handle SET_USER action 1`] = `
+Object {
+  "isLoggedIn": true,
+  "loggedUser": Object {
+    "name": "pepe",
+  },
+}
+`;
+
+exports[`Auth Reducer should should return initial state 1`] = `
+Object {
+  "isLoggedIn": false,
+  "loggedUser": null,
+}
+`;

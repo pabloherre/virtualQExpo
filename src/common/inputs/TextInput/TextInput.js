@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import {View, Text, TextInput as NativeTextInput} from 'react-native';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, Text, TextInput as NativeTextInput } from 'react-native';
+import styles from './TextInput.styles';
 
 class TextInput extends Component {
   constructor(props) {
@@ -7,31 +9,18 @@ class TextInput extends Component {
   }
 
   render() {
+    const { label, ...rest } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.label}>{this.props.label}</Text>
-        <NativeTextInput style={styles.input} {...this.props} />
+        <Text style={styles.label}>{label}</Text>
+        <NativeTextInput style={styles.input} {...rest} />
       </View>
     );
   }
 }
 
-const styles = {
-  container: {
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
-  input: {
-    height: 40,
-    fontSize: 20,
-    borderBottomColor: '#7DD7F1',
-    borderBottomWidth: 1,
-  },
-  label: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#7DD7F1',
-  },
+TextInput.propTypes = {
+  label: PropTypes.string.isRequired
 };
 
 export default TextInput;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { AsyncStorage } from 'react-native';
 import { Text } from 'react-native';
@@ -29,6 +30,10 @@ export default function checkAuthentication(WrappedComponent) {
       return this.props.isLoggedIn ? <WrappedComponent {...this.props} /> : <Text>Loading...</Text>;
     }
   }
+
+  IsAuthenticated.propTypes = {
+    isLoggedIn: PropTypes.bool.isRequired
+  };
 
   function mapStateToProps(state) {
     return {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TouchableOpacity, View, Text } from 'react-native';
 import styles from './AppointmentCard.styles';
@@ -36,6 +37,15 @@ class AppointmentCard extends Component {
     );
   }
 }
+
+AppointmentCard.propTypes = {
+  appointment: PropTypes.shape({
+    appointmentNumber: PropTypes.string.isRequired,
+    business: PropTypes.string.isRequired,
+    appointmentCountdown: PropTypes.number,
+    date: PropTypes.date
+  })
+};
 
 function mapStateToProps(state) {
   return {};
