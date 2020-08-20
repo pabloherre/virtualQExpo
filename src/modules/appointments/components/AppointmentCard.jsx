@@ -9,7 +9,7 @@ class AppointmentCard extends Component {
   render() {
     const { appointment, onPressCard } = this.props;
     return (
-      <TouchableOpacity style={styles.card} onPress={() => onPressCard(appointment)}>
+      <TouchableOpacity style={styles.card} onPress={() => onPressCard && onPressCard(appointment)}>
         <View>
           <Typography size="small" color="primary">
             {appointment.date}

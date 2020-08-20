@@ -13,7 +13,7 @@ class AppointmentsView extends Component {
     super(props);
   }
   handleOnPressCard = appointment => {
-    this.props.navigation.navigate('AppointmentDetails', appointment);
+    this.props.navigation.navigate('AppointmentDetails', { appointment });
   };
 
   render() {
