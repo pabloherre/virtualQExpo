@@ -1,7 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { connectedRender } from '../../../../jest/test-utils';
-import { shallow } from 'enzyme';
 import { appointment } from '../../../../jest/mocks';
 import AppointmentDetailsView from './AppointmentDetailsView';
 
