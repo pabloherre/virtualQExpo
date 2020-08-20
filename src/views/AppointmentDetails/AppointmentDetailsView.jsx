@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-native';
 import styles from './AppointmentDetailsView.styles';
-import AppointmentCard from '../components/AppointmentCard';
+import AppointmentCard from '../../modules/appointments/components/AppointmentCard';
 
 class AppointmentDetailsView extends Component {
   render() {

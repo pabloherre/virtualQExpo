@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AsyncStorage, FlatList, SafeAreaView, View, Text } from 'react-native';
 import styles from './AppointmentsView.styles';
-import AppointmentCard from './components/AppointmentCard';
+import AppointmentCard from '../../modules/appointments/components/AppointmentCard';
 import RoundedButton from '../../common/buttons/RoundedButton/RoundedButton';
 import { compose } from 'redux';
 import checkAuthentication from '../../modules/auth/components/CheckAuthentication';

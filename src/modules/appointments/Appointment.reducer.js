@@ -1,4 +1,4 @@
-import {appointments} from '../../../jest/mocks';
+import { appointments } from '../../../jest/mocks';
 
 const INITIAL_STATE = {
   appointments

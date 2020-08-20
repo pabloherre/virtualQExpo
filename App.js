@@ -11,8 +11,7 @@ import RegisterView from './src/views/Register/RegisterView';
 import AppointmentsView from './src/views/Appointments/AppointmentsView';
 import store from './src/setup/store';
 import LoginView from './src/views/Login/LoginView';
-import checkAuthentication from './src/modules/auth/components/CheckAuthentication';
-import AppointmentDetailsView from './src/views/Appointments/AppointmentDetails/AppointmentDetailsView';
+import AppointmentDetailsView from './src/views/AppointmentDetails/AppointmentDetailsView';
 
 const Stack = createStackNavigator();
 const theme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: '#fff' } };

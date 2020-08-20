@@ -1,6 +1,6 @@
 import React from 'react';
-import { connectedRender } from '../../../../jest/test-utils';
-import { appointment } from '../../../../jest/mocks';
+import { connectedRender } from '../../../jest/test-utils';
+import { appointment } from '../../../jest/mocks';
 import AppointmentDetailsView from './AppointmentDetailsView';
 
 describe('<AppointmentDetailsView />', () => {
