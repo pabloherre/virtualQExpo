@@ -9,6 +9,6 @@ const reducers = combineReducers({
 });
 
 const store = createStore(reducers, applyMiddleware(ReduxThunk));
-window.store = store;
+window.store = store; // TODO: remove in production.
 
 export default store;

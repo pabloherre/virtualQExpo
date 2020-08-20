@@ -12,13 +12,20 @@ class AppointmentsView extends Component {
   constructor(props) {
     super(props);
   }
+  handleOnPressCard = appointment => {
+    this.props.navigation.navigate('AppointmentDetails', appointment);
+  };
 
   render() {
     const { appointments } = this.props;
     return (
       <>
         <SafeAreaView style={styles.container}>
-          <FlatList data={appointments} renderItem={({ item }) => <AppointmentCard appointment={item} />} keyExtractor={item => item.id.toString()} />
+          <FlatList
+            data={appointments}
+            renderItem={({ item }) => <AppointmentCard appointment={item} onPressCard={appointment => this.handleOnPressCard(appointment)} />}
+            keyExtractor={item => item.id.toString()}
+          />
         </SafeAreaView>
         <RoundedButton
           label="Clear storage"

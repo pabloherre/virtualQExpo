@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import styles from './HomeView.styles';
 
-class HomeScreen extends React.Component {
+class HomeScreen extends Component {
   constructor(props) {
     super(props);
   }

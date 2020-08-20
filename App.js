@@ -12,6 +12,7 @@ import AppointmentsView from './src/views/Appointments/AppointmentsView';
 import store from './src/setup/store';
 import LoginView from './src/views/Login/LoginView';
 import checkAuthentication from './src/modules/auth/components/CheckAuthentication';
+import AppointmentDetailsView from './src/views/Appointments/AppointmentDetails/AppointmentDetailsView';
 
 const Stack = createStackNavigator();
 const theme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: '#fff' } };
@@ -20,6 +21,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer theme={theme}>
         <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="AppointmentDetails" component={AppointmentDetailsView} />
           <Stack.Screen name="Appointments" component={AppointmentsView} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Register" component={RegisterView} />

@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --coverage",
-    "test:dev": "jest --watch --runInBand"
+    "test:dev": "jest --watch --changedSince=master"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -37,7 +37,8 @@
     "jest-enzyme": "^7.1.2",
     "jest-expo": "37.0.0",
     "jest-prop-type-error": "^1.1.0",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "redux-mock-store": "^1.5.4"
   },
   "jest": {
     "preset": "jest-expo",
@@ -45,11 +46,12 @@
       "^.+\\.[jt]sx?$": "babel-jest"
     },
     "setupFilesAfterEnv": [
-      "./setup-tests.js"
+      "./jest/setup-tests.js"
     ],
     "setupFiles": [
       "jest-prop-type-error",
-      "./jest-mocks.js"
+      "./jest/jest-mocks.js",
+      "./jest/test-utils.js"
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"

@@ -7,9 +7,9 @@ import Typography from '../../../common/typography/Typography';
 
 class AppointmentCard extends Component {
   render() {
-    const { appointment } = this.props;
+    const { appointment, onPressCard } = this.props;
     return (
-      <TouchableOpacity style={styles.card}>
+      <TouchableOpacity style={styles.card} onPress={() => onPressCard(appointment)}>
         <View>
           <Typography size="small" color="primary">
             {appointment.date}

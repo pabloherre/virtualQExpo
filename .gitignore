@@ -12,3 +12,8 @@ coverage/**/*
 
 # macOS
 .DS_Store
+
+# VS code and Other IDEs
+.vscode/**/*
+.idea/**/*
+*.code-workspace
