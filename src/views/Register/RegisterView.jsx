@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import { RoundedButton } from '../../common/buttons';
 import { TextInput } from '../../common/inputs';
-import { AsyncStorage, Button, Image, View } from 'react-native';
-import styles from './RegisterView.styles';
+import { AsyncStorage, Button, Image, SafeAreaView, View } from 'react-native';
 import { setUser } from '../../modules/auth/Auth.actions';
 
 import logo from '../../../assets/images/logo1.jpg';
+import { safeArea } from '../../styles/common.styles';
 
 class RegisterView extends Component {
   constructor(props) {
@@ -37,11 +37,9 @@ class RegisterView extends Component {
   render() {
     const { name, lastName, email, password } = this.state;
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={safeArea}>
+        <Image source={logo} />
         <View>
-          <Image source={logo} />
-        </View>
-        <View style={styles.form}>
           <TextInput value={name} onChangeText={text => this.handleChange(text, 'name')} label="Nombre" />
           <TextInput value={lastName} onChangeText={text => this.handleChange(text, 'lastName')} label="Apellido" />
           <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
@@ -54,7 +52,7 @@ class RegisterView extends Component {
           }}
           title={'Appointments'}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }

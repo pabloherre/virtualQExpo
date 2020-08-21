@@ -7,14 +7,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  buttonContainer: {
-    position: 'absolute',
-    bottom: 20,
-    width: '100%'
-  },
-  addButton: {
-    width: '15%',
-    display: 'flex',
-    alignSelf: 'center'
+  infoCard: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#edeceb',
+    borderRadius: 10,
+    padding: 20,
+    margin: 5
   }
 });

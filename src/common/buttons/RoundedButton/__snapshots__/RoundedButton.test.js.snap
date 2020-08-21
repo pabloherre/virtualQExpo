@@ -16,11 +16,12 @@ exports[`<RoundedButton /> renders correctly 1`] = `
       "alignItems": "center",
       "backgroundColor": "#F77027",
       "borderRadius": 30,
+      "flexDirection": "row",
       "height": 60,
-      "justifyContent": "center",
+      "justifyContent": "space-around",
       "opacity": 1,
-      "paddingBottom": 10,
-      "paddingTop": 10,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
     }
   }
 >
@@ -29,6 +30,7 @@ exports[`<RoundedButton /> renders correctly 1`] = `
       Object {
         "color": "white",
         "fontSize": 20,
+        "paddingHorizontal": 10,
       }
     }
   >

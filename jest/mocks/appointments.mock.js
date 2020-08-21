@@ -6,7 +6,10 @@ export const appointments = [
     appointmentNumber: '234234',
     appointmentCountdown: 23,
     latitude: -32.8913568,
-    longitude: -68.8567443
+    longitude: -68.8567443,
+    address: 'Av. Cabildo 2035',
+    city: 'Belgrano, CABA',
+    email: 'somename@randomemail.com'
   },
   {
     id: 2,
@@ -15,7 +18,10 @@ export const appointments = [
     appointmentNumber: '2B4354',
     appointmentCountdown: 322,
     latitude: -32.8913568,
-    longitude: -68.8567443
+    longitude: -68.8567443,
+    address: 'Av. Cabildo 2035',
+    city: 'Belgrano, CABA',
+    email: 'somename@randomemail.com'
   },
   {
     id: 3,
@@ -24,7 +30,10 @@ export const appointments = [
     appointmentNumber: '234354',
     appointmentCountdown: 322,
     latitude: -32.8913568,
-    longitude: -68.8567443
+    longitude: -68.8567443,
+    address: 'Av. Cabildo 2035',
+    city: 'Belgrano, CABA',
+    email: 'somename@randomemail.com'
   },
   {
     id: 4,
@@ -33,6 +42,9 @@ export const appointments = [
     appointmentNumber: '234354',
     appointmentCountdown: 322,
     latitude: -32.8913568,
-    longitude: -68.8567443
+    longitude: -68.8567443,
+    address: 'Av. Cabildo 2035',
+    city: 'Belgrano, CABA',
+    email: 'somename@randomemail.com'
   }
 ];
