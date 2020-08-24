@@ -17,8 +17,8 @@ export const appointments = [
     business: 'Supermarket',
     appointmentNumber: '2B4354',
     appointmentCountdown: 322,
-    latitude: -32.8913568,
-    longitude: -68.8567443,
+    latitude: -32.8913468,
+    longitude: -68.8565443,
     address: 'Av. Cabildo 2035',
     city: 'Belgrano, CABA',
     email: 'somename@randomemail.com'
@@ -29,8 +29,8 @@ export const appointments = [
     business: 'Cinema',
     appointmentNumber: '234354',
     appointmentCountdown: 322,
-    latitude: -32.8913568,
-    longitude: -68.8567443,
+    latitude: -32.8923568,
+    longitude: -68.8467443,
     address: 'Av. Cabildo 2035',
     city: 'Belgrano, CABA',
     email: 'somename@randomemail.com'
@@ -41,8 +41,8 @@ export const appointments = [
     business: 'Pool',
     appointmentNumber: '234354',
     appointmentCountdown: 322,
-    latitude: -32.8913568,
-    longitude: -68.8567443,
+    latitude: -32.8953568,
+    longitude: -68.8667443,
     address: 'Av. Cabildo 2035',
     city: 'Belgrano, CABA',
     email: 'somename@randomemail.com'

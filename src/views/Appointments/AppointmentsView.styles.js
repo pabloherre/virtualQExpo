@@ -8,7 +8,6 @@ export default StyleSheet.create({
     left: 40
   },
   addButton: {
-    width: '20%',
     display: 'flex',
     alignSelf: 'center'
   }

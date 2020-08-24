@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AsyncStorage, FlatList, SafeAreaView, View } from 'react-native';
+import { FlatList, SafeAreaView, TouchableOpacity, View } from 'react-native';
 import styles from './AppointmentsView.styles';
 import AppointmentCard from '../../modules/appointments/components/AppointmentCard';
-import RoundedButton from '../../common/buttons/RoundedButton/RoundedButton';
 import { compose } from 'redux';
 import checkAuthentication from '../../modules/auth/components/CheckAuthentication';
-import { logout } from '../../modules/auth/Auth.actions';
 import { safeArea } from '../../styles/common.styles';
+import { Entypo } from '@expo/vector-icons';
+import RoundedIcon from '../../common/icons/RoundedIcon';
 
 class AppointmentsView extends Component {
   constructor(props) {
@@ -29,16 +29,12 @@ class AppointmentsView extends Component {
 
         <View style={styles.buttonContainer}>
           <View style={styles.addButton}>
-            <RoundedButton label="+" />
+            <RoundedIcon size={64} bkColor={'#f77027'} shadow={true}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('AppointmentNew')}>
+                <Entypo name="plus" size={36} color="white" />
+              </TouchableOpacity>
+            </RoundedIcon>
           </View>
-          <RoundedButton
-            label="Logout"
-            onPress={async () => {
-              this.props.logout();
-              await AsyncStorage.removeItem('user');
-              this.props.navigation.navigate('Login');
-            }}
-          />
         </View>
       </SafeAreaView>
     );
@@ -51,8 +47,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  logout
-};
-
-export default compose(checkAuthentication, connect(mapStateToProps, mapDispatchToProps))(AppointmentsView);
+export default compose(checkAuthentication, connect(mapStateToProps, null))(AppointmentsView);
