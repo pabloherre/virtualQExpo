@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextInput from '../../common/inputs/TextInput/TextInput';
-import { AsyncStorage, SafeAreaView, Text, TouchableOpacity } from 'react-native';
+import { AsyncStorage, SafeAreaView, Text, Image, TouchableOpacity, View } from 'react-native';
 import RoundedButton from '../../common/buttons/RoundedButton/RoundedButton';
 import { setUser } from '../../modules/auth/Auth.actions';
 import { safeArea } from '../../styles/common.styles';
+import Typography from '../../common/typography/Typography';
+import logo from '../../../assets/images/logo1.jpg';
 
 class LoginView extends Component {
   constructor(props) {
@@ -29,12 +31,19 @@ class LoginView extends Component {
     const { email, password } = this.state;
     return (
       <SafeAreaView style={safeArea}>
-        <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
-        <TextInput value={password} secureTextEntry onChangeText={text => this.handleChange(text, 'password')} label="Password" />
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
-          <Text>Dont have an account, register here</Text>
-        </TouchableOpacity>
-        <RoundedButton label="Login" onPress={this.handleLogin} />
+        <View style={{ marginTop: 100 }}>
+          <Image source={logo} style={{ alignSelf: 'center', marginVertical: 20 }} />
+          <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
+          <TextInput value={password} secureTextEntry onChangeText={text => this.handleChange(text, 'password')} label="Password" />
+          <View style={{ marginVertical: 20 }}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
+              <Typography>
+                Dont have an account, register <Typography color="secondary">here</Typography>
+              </Typography>
+            </TouchableOpacity>
+          </View>
+          <RoundedButton label="Login" onPress={this.handleLogin} />
+        </View>
       </SafeAreaView>
     );
   }

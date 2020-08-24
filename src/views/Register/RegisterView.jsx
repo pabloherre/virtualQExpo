@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { RoundedButton } from '../../common/buttons';
 import { TextInput } from '../../common/inputs';
-import { AsyncStorage, Button, Image, SafeAreaView, View } from 'react-native';
+import { AsyncStorage, Image, SafeAreaView, View } from 'react-native';
 import { setUser } from '../../modules/auth/Auth.actions';
 
 import logo from '../../../assets/images/logo1.jpg';
@@ -38,20 +38,22 @@ class RegisterView extends Component {
     const { name, lastName, email, password } = this.state;
     return (
       <SafeAreaView style={safeArea}>
-        <Image source={logo} />
-        <View>
-          <TextInput value={name} onChangeText={text => this.handleChange(text, 'name')} label="Nombre" />
-          <TextInput value={lastName} onChangeText={text => this.handleChange(text, 'lastName')} label="Apellido" />
-          <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
-          <TextInput value={password} secureTextEntry onChangeText={text => this.handleChange(text, 'password')} label="Password" />
+        <View style={{ marginTop: 100 }}>
+          <Image source={logo} style={{ alignSelf: 'center' }} />
+          <View style={{ marginBottom: 20 }}>
+            <TextInput value={name} onChangeText={text => this.handleChange(text, 'name')} label="Nombre" />
+            <TextInput value={lastName} onChangeText={text => this.handleChange(text, 'lastName')} label="Apellido" />
+            <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
+            <TextInput value={password} secureTextEntry onChangeText={text => this.handleChange(text, 'password')} label="Password" />
+          </View>
           <RoundedButton label="REGISTRARME" onPress={this.handleRegister} />
+          {/*<Button*/}
+          {/*  onPress={() => {*/}
+          {/*    this.props.navigation.navigate('Appointments');*/}
+          {/*  }}*/}
+          {/*  title={'Appointments'}*/}
+          {/*/>*/}
         </View>
-        <Button
-          onPress={() => {
-            this.props.navigation.navigate('Appointments');
-          }}
-          title={'Appointments'}
-        />
       </SafeAreaView>
     );
   }

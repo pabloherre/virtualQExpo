@@ -55,7 +55,13 @@ function StackScreen() {
         }}
       />
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Register" component={RegisterView} />
+      <Stack.Screen
+        name="Register"
+        component={RegisterView}
+        options={{
+          headerShown: false
+        }}
+      />
       <Stack.Screen
         name="Login"
         component={LoginView}
