@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import styles from './RoundedIcon.styles';
 import PropTypes from 'prop-types';
+import { colors } from '../../../theme';
 
 class RoundedIcon extends Component {
   getShadowStyles = () => {
@@ -23,7 +24,7 @@ class RoundedIcon extends Component {
 }
 
 RoundedIcon.defaultProps = {
-  bkColor: '#0db4e4',
+  bkColor: colors.secondary,
   shadow: false,
   size: 50
 };

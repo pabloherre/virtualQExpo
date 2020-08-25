@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import { withTheme } from '../theme/Theme';
 
 const size = {
   small: 14,
   medium: 20,
   large: 30
-};
-
-const color = {
-  default: '#a1a2a4',
-  primary: '#f77027',
-  secondary: '#0db4e4'
 };
 
 class Typography extends Component {
@@ -23,7 +18,8 @@ class Typography extends Component {
   };
 
   getColor = () => {
-    return Object.assign({}, { color: color[this.props.color || 'default'] });
+    const { colors } = this.props.theme;
+    return Object.assign({}, { color: colors[this.props.color || 'text'] });
   };
 
   getTextStyles = () => {
@@ -35,4 +31,4 @@ class Typography extends Component {
   }
 }
 
-export default Typography;
+export default withTheme(Typography);

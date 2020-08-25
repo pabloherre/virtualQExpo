@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Typography from '../../common/typography/Typography';
 import { safeArea } from '../../styles/common.styles';
-import { SafeAreaView, TextInput, TouchableOpacity, View, Text } from 'react-native';
+import { SafeAreaView, TextInput, TouchableOpacity, View } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { RoundedButton } from '../../common/buttons/';
 import { AntDesign } from '@expo/vector-icons';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import { withTheme } from '../../common/theme/Theme';
+import { compose } from 'redux';
 
 class AppointmentNew extends Component {
   constructor(props) {
@@ -23,7 +25,6 @@ class AppointmentNew extends Component {
     let { status } = await Location.requestPermissionsAsync();
     if (status === 'granted') {
       let location = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
-      console.log(location);
       this.setState({ currentLocation: location });
     }
   }
@@ -34,6 +35,9 @@ class AppointmentNew extends Component {
 
   render() {
     const { hasPermissions, searchValue, currentLocation } = this.state;
+    const {
+      theme: { colors }
+    } = this.props;
     return (
       <SafeAreaView style={safeArea}>
         <Typography>Type the store code or scan the QR code</Typography>
@@ -54,7 +58,7 @@ class AppointmentNew extends Component {
           >
             <TextInput style={{ flex: 8 }} value={searchValue} onChangeText={text => this.setState({ searchValue: text })} label="Code" />
             <TouchableOpacity style={{ flex: 1 }} onPress={this.handleCode}>
-              <AntDesign name="right" size={20} color="#f77027" />
+              <AntDesign name="right" size={20} color={colors.primary} />
             </TouchableOpacity>
           </View>
           <RoundedButton
@@ -117,4 +121,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(AppointmentNew);
+export default compose(withTheme, connect(mapStateToProps))(AppointmentNew);

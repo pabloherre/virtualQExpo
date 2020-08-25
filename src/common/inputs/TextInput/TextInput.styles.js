@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -8,12 +9,12 @@ export default StyleSheet.create({
   input: {
     height: 40,
     fontSize: 20,
-    borderBottomColor: '#7DD7F1',
+    borderBottomColor: colors.secondary,
     borderBottomWidth: 1
   },
   label: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#7DD7F1'
+    color: colors.secondary
   }
 });

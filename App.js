@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer, useTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Provider } from 'react-redux';
@@ -16,13 +16,18 @@ import HeaderProfile from './src/common/header/HeaderProfile';
 import HeaderNotification from './src/common/header/HeaderNotification';
 import AppointmentNew from './src/views/AppointmentNew/AppointmentNew';
 import QRCodeView from './src/views/QRCode/QRCode';
+import { colors } from './theme';
 
 const Stack = createStackNavigator();
 const RootStack = createStackNavigator();
 
-const theme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: '#fff' } };
+const theme = {
+  ...DefaultTheme,
+  colors
+};
 
 function StackScreen() {
+  const theme = useTheme();
   return (
     <Stack.Navigator initialRouteName="Login">
       <Stack.Screen
@@ -38,7 +43,7 @@ function StackScreen() {
         options={({ navigation }) => ({
           headerTitle: 'My Appointments',
           headerTitleAlign: 'center',
-          headerTitleStyle: { color: '#0db4e4' },
+          headerTitleStyle: { color: theme.colors.secondary },
           headerLeft: props => <HeaderProfile {...props} navigation={navigation} />,
           headerLeftContainerStyle: { paddingHorizontal: 10 },
           headerRight: props => <HeaderNotification {...props} />,
@@ -50,7 +55,7 @@ function StackScreen() {
         component={AppointmentNew}
         options={{
           headerTitle: 'New Appointment',
-          headerTitleStyle: { color: '#0db4e4' },
+          headerTitleStyle: { color: theme.colors.secondary },
           headerTitleAlign: 'center'
         }}
       />

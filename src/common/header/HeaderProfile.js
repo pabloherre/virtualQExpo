@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import { EvilIcons } from '@expo/vector-icons';
 import { AsyncStorage } from 'react-native';
 import { logout } from '../../modules/auth/Auth.actions';
+import { withTheme } from '../theme/Theme';
+import { compose } from 'redux';
 
 class HeaderProfile extends Component {
   render() {
+    const {
+      theme: { colors }
+    } = this.props;
     return (
       <EvilIcons
         name="user"
         size={36}
-        color="#a1a2a4"
+        color={colors.text}
         onPress={async () => {
           this.props.logout();
           try {
@@ -31,4 +36,4 @@ const mapDispatchToProps = {
   logout
 };
 
-export default connect(null, mapDispatchToProps)(HeaderProfile);
+export default compose(withTheme, connect(null, mapDispatchToProps))(HeaderProfile);

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import styles from './AppointmentCard.styles';
 import Typography from '../../../common/typography/Typography';
+import { AntDesign } from '@expo/vector-icons';
+import { withTheme } from '../../../common/theme/Theme';
+import { compose } from 'redux';
 
 class AppointmentCard extends Component {
   render() {
-    const { appointment, onPressCard } = this.props;
+    const {
+      appointment,
+      onPressCard,
+      theme: { colors }
+    } = this.props;
     return (
       <TouchableOpacity style={styles.card} onPress={() => onPressCard && onPressCard(appointment)}>
         <View>
@@ -24,7 +31,7 @@ class AppointmentCard extends Component {
             <Typography size="large" color="secondary">
               {appointment.appointmentNumber}
             </Typography>
-            <Typography size="large">&#62;</Typography>
+            <AntDesign name="right" size={24} color={colors.text} />
             <Typography size="large" color="primary">
               {appointment.appointmentCountdown}
             </Typography>
@@ -51,4 +58,4 @@ function mapStateToProps(state) {
   return {};
 }
 
-export default connect(mapStateToProps)(AppointmentCard);
+export default compose(withTheme, connect(mapStateToProps))(AppointmentCard);
