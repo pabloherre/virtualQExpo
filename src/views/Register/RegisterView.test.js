@@ -44,14 +44,12 @@ describe('<RegisterView />', () => {
     expect(wrapper.state('password')).toBe('testPassword');
   });
 
-  it('should set user in async storage when register', async () => {
+  it('should redirect to login when register', async () => {
     UserService.registerUser.mockReturnValueOnce({ name: 'test' });
     const wrapper = shallow(<RegisterView {...mockProps} />);
 
     await wrapper.instance().handleRegister();
-
-    expect(AsyncStorage.setItem).toHaveBeenCalled();
-    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled();
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledWith('Login');
   });
 
   it('should not redirect if register failed', async () => {

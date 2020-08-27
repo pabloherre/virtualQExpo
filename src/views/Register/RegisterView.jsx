@@ -30,9 +30,7 @@ export class RegisterView extends Component {
     const user = await UserService.registerUser(Object.assign({}, this.state));
 
     if (user) {
-      await AsyncStorage.setItem('user', JSON.stringify(this.state));
-      AuthService.login();
-      this.props.navigation.navigate('Appointments');
+      this.props.navigation.navigate('Login');
     }
   };
 

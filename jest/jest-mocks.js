@@ -21,7 +21,10 @@ jest.mock('../src/setup/feathersClient', () => {
     appointmentApi: mockfeathersMethods,
     businessApi: mockfeathersMethods,
     categoryApi: mockfeathersMethods,
-    turnApi: mockfeathersMethods
+    turnApi: mockfeathersMethods,
+    authenticate: {
+      create: jest.fn()
+    } 
   };
 });
 jest.mock('../src/services/user/User.service');

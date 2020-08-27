@@ -1,7 +1,7 @@
 import feathers from '@feathersjs/feathers';
 import rest from '@feathersjs/rest-client';
 
-let userApi, appointmentApi, businessApi, categoryApi, turnApi;
+let userApi, appointmentApi, businessApi, categoryApi, turnApi, authenticate;
 
 export default function initFeathersClient() {
   const client = rest('https://virtual-queue-server.herokuapp.com');
@@ -11,6 +11,7 @@ export default function initFeathersClient() {
   businessApi = feathersClient.service('businness');
   categoryApi = feathersClient.service('categories');
   turnApi = feathersClient.service('turns');
+  authenticate = feathersClient.service('authentication');
 }
 
-export { userApi, appointmentApi, businessApi, categoryApi, turnApi };
+export { userApi, appointmentApi, businessApi, categoryApi, turnApi, authenticate };
