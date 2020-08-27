@@ -1,0 +1,556 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RegisterView /> should render correctly 1`] = `
+<RegisterView>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "paddingHorizontal": 40,
+        "paddingVertical": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-start",
+          "paddingHorizontal": 40,
+          "paddingVertical": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginTop": 100,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginTop": 100,
+            }
+          }
+        >
+          <Image
+            source={1}
+            style={
+              Object {
+                "alignSelf": "center",
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "alignSelf": "center",
+                }
+              }
+            />
+          </Image>
+          <View
+            style={
+              Object {
+                "marginBottom": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginBottom": 20,
+                }
+              }
+            >
+              <TextInput
+                label="Nombre"
+                onChangeText={[Function]}
+                value=""
+              >
+                <View
+                  style={
+                    Object {
+                      "paddingBottom": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#0db4e4",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#0db4e4",
+                            "fontSize": 20,
+                            "fontWeight": "bold",
+                          }
+                        }
+                      >
+                        Nombre
+                      </Text>
+                    </Text>
+                    <Component
+                      allowFontScaling={true}
+                      onChangeText={[Function]}
+                      rejectResponderTermination={true}
+                      style={
+                        Object {
+                          "borderBottomColor": "#0db4e4",
+                          "borderBottomWidth": 1,
+                          "fontSize": 20,
+                          "height": 40,
+                        }
+                      }
+                      underlineColorAndroid="transparent"
+                      value=""
+                    >
+                      <TextInput
+                        allowFontScaling={true}
+                        onChangeText={[Function]}
+                        rejectResponderTermination={true}
+                        style={
+                          Object {
+                            "borderBottomColor": "#0db4e4",
+                            "borderBottomWidth": 1,
+                            "fontSize": 20,
+                            "height": 40,
+                          }
+                        }
+                        underlineColorAndroid="transparent"
+                        value=""
+                      />
+                    </Component>
+                  </View>
+                </View>
+              </TextInput>
+              <TextInput
+                label="Apellido"
+                onChangeText={[Function]}
+                value=""
+              >
+                <View
+                  style={
+                    Object {
+                      "paddingBottom": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#0db4e4",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#0db4e4",
+                            "fontSize": 20,
+                            "fontWeight": "bold",
+                          }
+                        }
+                      >
+                        Apellido
+                      </Text>
+                    </Text>
+                    <Component
+                      allowFontScaling={true}
+                      onChangeText={[Function]}
+                      rejectResponderTermination={true}
+                      style={
+                        Object {
+                          "borderBottomColor": "#0db4e4",
+                          "borderBottomWidth": 1,
+                          "fontSize": 20,
+                          "height": 40,
+                        }
+                      }
+                      underlineColorAndroid="transparent"
+                      value=""
+                    >
+                      <TextInput
+                        allowFontScaling={true}
+                        onChangeText={[Function]}
+                        rejectResponderTermination={true}
+                        style={
+                          Object {
+                            "borderBottomColor": "#0db4e4",
+                            "borderBottomWidth": 1,
+                            "fontSize": 20,
+                            "height": 40,
+                          }
+                        }
+                        underlineColorAndroid="transparent"
+                        value=""
+                      />
+                    </Component>
+                  </View>
+                </View>
+              </TextInput>
+              <TextInput
+                label="Email"
+                onChangeText={[Function]}
+                value=""
+              >
+                <View
+                  style={
+                    Object {
+                      "paddingBottom": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#0db4e4",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#0db4e4",
+                            "fontSize": 20,
+                            "fontWeight": "bold",
+                          }
+                        }
+                      >
+                        Email
+                      </Text>
+                    </Text>
+                    <Component
+                      allowFontScaling={true}
+                      onChangeText={[Function]}
+                      rejectResponderTermination={true}
+                      style={
+                        Object {
+                          "borderBottomColor": "#0db4e4",
+                          "borderBottomWidth": 1,
+                          "fontSize": 20,
+                          "height": 40,
+                        }
+                      }
+                      underlineColorAndroid="transparent"
+                      value=""
+                    >
+                      <TextInput
+                        allowFontScaling={true}
+                        onChangeText={[Function]}
+                        rejectResponderTermination={true}
+                        style={
+                          Object {
+                            "borderBottomColor": "#0db4e4",
+                            "borderBottomWidth": 1,
+                            "fontSize": 20,
+                            "height": 40,
+                          }
+                        }
+                        underlineColorAndroid="transparent"
+                        value=""
+                      />
+                    </Component>
+                  </View>
+                </View>
+              </TextInput>
+              <TextInput
+                label="Password"
+                onChangeText={[Function]}
+                secureTextEntry={true}
+                value=""
+              >
+                <View
+                  style={
+                    Object {
+                      "paddingBottom": 10,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#0db4e4",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#0db4e4",
+                            "fontSize": 20,
+                            "fontWeight": "bold",
+                          }
+                        }
+                      >
+                        Password
+                      </Text>
+                    </Text>
+                    <Component
+                      allowFontScaling={true}
+                      onChangeText={[Function]}
+                      rejectResponderTermination={true}
+                      secureTextEntry={true}
+                      style={
+                        Object {
+                          "borderBottomColor": "#0db4e4",
+                          "borderBottomWidth": 1,
+                          "fontSize": 20,
+                          "height": 40,
+                        }
+                      }
+                      underlineColorAndroid="transparent"
+                      value=""
+                    >
+                      <TextInput
+                        allowFontScaling={true}
+                        onChangeText={[Function]}
+                        rejectResponderTermination={true}
+                        secureTextEntry={true}
+                        style={
+                          Object {
+                            "borderBottomColor": "#0db4e4",
+                            "borderBottomWidth": 1,
+                            "fontSize": 20,
+                            "height": 40,
+                          }
+                        }
+                        underlineColorAndroid="transparent"
+                        value=""
+                      />
+                    </Component>
+                  </View>
+                </View>
+              </TextInput>
+            </View>
+          </View>
+          <RoundedButton
+            buttonStyle={Object {}}
+            label="REGISTRARME"
+            onPress={[Function]}
+            textStyle={Object {}}
+          >
+            <ForwardRef
+              onPress={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#f77027",
+                  "borderRadius": 30,
+                  "flexDirection": "row",
+                  "height": 60,
+                  "justifyContent": "space-around",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <TouchableOpacity
+                hostRef={null}
+                onPress={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#f77027",
+                    "borderRadius": 30,
+                    "flexDirection": "row",
+                    "height": 60,
+                    "justifyContent": "space-around",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  }
+                }
+              >
+                <ForwardRef(AnimatedComponentWrapper)
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#f77027",
+                        "borderRadius": 30,
+                        "flexDirection": "row",
+                        "height": 60,
+                        "justifyContent": "space-around",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "opacity": 1,
+                      },
+                    ]
+                  }
+                >
+                  <AnimatedComponent
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#f77027",
+                          "borderRadius": 30,
+                          "flexDirection": "row",
+                          "height": 60,
+                          "justifyContent": "space-around",
+                          "paddingHorizontal": 20,
+                          "paddingVertical": 10,
+                        },
+                        Object {
+                          "opacity": 1,
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#f77027",
+                          "borderRadius": 30,
+                          "flexDirection": "row",
+                          "height": 60,
+                          "justifyContent": "space-around",
+                          "opacity": 1,
+                          "paddingHorizontal": 20,
+                          "paddingVertical": 10,
+                        }
+                      }
+                    >
+                      <View
+                        accessible={true}
+                        focusable={true}
+                        onClick={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#f77027",
+                            "borderRadius": 30,
+                            "flexDirection": "row",
+                            "height": 60,
+                            "justifyContent": "space-around",
+                            "opacity": 1,
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 10,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "white",
+                              "fontSize": 20,
+                              "paddingHorizontal": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "paddingHorizontal": 10,
+                              }
+                            }
+                          >
+                            REGISTRARME
+                          </Text>
+                        </Text>
+                        <PressabilityDebugView
+                          color="cyan"
+                        />
+                      </View>
+                    </View>
+                  </AnimatedComponent>
+                </ForwardRef(AnimatedComponentWrapper)>
+              </TouchableOpacity>
+            </ForwardRef>
+          </RoundedButton>
+        </View>
+      </View>
+    </View>
+  </View>
+</RegisterView>
+`;

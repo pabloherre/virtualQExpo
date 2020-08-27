@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextInput from '../../common/inputs/TextInput/TextInput';
-import { AsyncStorage, SafeAreaView, Text, Image, TouchableOpacity, View } from 'react-native';
+import { Text, Image, TouchableOpacity, View } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import RoundedButton from '../../common/buttons/RoundedButton/RoundedButton';
 import { setUser } from '../../modules/auth/Auth.actions';
 import { safeArea } from '../../styles/common.styles';
 import Typography from '../../common/typography/Typography';
 import logo from '../../../assets/images/logo1.jpg';
 
-class LoginView extends Component {
+export class LoginView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +31,7 @@ class LoginView extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <SafeAreaView style={safeArea}>
+      <View style={safeArea}>
         <View style={{ marginTop: 100 }}>
           <Image source={logo} style={{ alignSelf: 'center', marginVertical: 20 }} />
           <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
@@ -44,7 +45,7 @@ class LoginView extends Component {
           </View>
           <RoundedButton label="Login" onPress={this.handleLogin} />
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }

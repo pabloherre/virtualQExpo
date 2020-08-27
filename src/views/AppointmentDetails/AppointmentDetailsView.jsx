@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SafeAreaView, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import AppointmentCard from '../../modules/appointments/components/AppointmentCard';
 import { safeArea } from '../../styles/common.styles';
 import MapView, { Marker } from 'react-native-maps';
@@ -15,7 +15,7 @@ class AppointmentDetailsView extends Component {
   render() {
     const { appointment } = this.props.route.params;
     return (
-      <SafeAreaView style={safeArea}>
+      <View style={safeArea}>
         {appointment && (
           <ScrollView id="appointmentDetailContainer">
             <AppointmentCard appointment={appointment} />
@@ -87,7 +87,7 @@ class AppointmentDetailsView extends Component {
             <FontAwesome5 name="trash-alt" size={20} color="black" />
           </RoundedIcon>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }

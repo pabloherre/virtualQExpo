@@ -12,7 +12,7 @@ exports[`<TextInput /> should render correctly 1`] = `
   <Text
     style={
       Object {
-        "color": "#7DD7F1",
+        "color": "#0db4e4",
         "fontSize": 20,
         "fontWeight": "bold",
       }
@@ -25,7 +25,7 @@ exports[`<TextInput /> should render correctly 1`] = `
     rejectResponderTermination={true}
     style={
       Object {
-        "borderBottomColor": "#7DD7F1",
+        "borderBottomColor": "#0db4e4",
         "borderBottomWidth": 1,
         "fontSize": 20,
         "height": 40,

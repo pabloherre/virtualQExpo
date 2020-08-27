@@ -1,0 +1,40 @@
+import React from 'react';
+import { HeaderProfile } from './HeaderProfile';
+import { connectedRender, connectedShallow } from '../../../jest/test-utils';
+import { shallow, mount } from 'enzyme';
+
+let component;
+
+const mockProps = {
+  logout: jest.fn()
+};
+
+describe('<HeaderProfile />', () => {
+  beforeEach(() => {
+    component = shallow(<HeaderProfile {...mockProps} />);
+  });
+  // it('renders correctly', async () => {
+  //   expect(component).toMatchSnapshot();
+  // });
+
+  it('should have an icon', async () => {
+    expect(component.find('Icon')).toExist();
+  });
+
+  it('can receive a color for the icon and should render it', async () => {
+    component.setProps({ colors: { text: 'red' } });
+
+    expect(component.instance().props.colors.text).toBe('red');
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render a default color if none passed', async () => {
+    expect(component.instance().props.colors.text).toBe('#a1a2a4');
+    expect(component).toMatchSnapshot();
+  });
+
+  it('it calls to logout when press button', async () => {
+    component.props().onPress();
+    expect(component.instance().props.logout).toHaveBeenCalled();
+  });
+});

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FlatList, SafeAreaView, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { FlatList, TouchableOpacity, View } from 'react-native';
 import styles from './AppointmentsView.styles';
 import AppointmentCard from '../../modules/appointments/components/AppointmentCard';
 import { compose } from 'redux';
@@ -8,10 +9,9 @@ import checkAuthentication from '../../modules/auth/components/CheckAuthenticati
 import { safeArea } from '../../styles/common.styles';
 import { Entypo } from '@expo/vector-icons';
 import RoundedIcon from '../../common/icons/RoundedIcon';
-import { useTheme } from '@react-navigation/native';
-import { withTheme } from '../../common/theme/Theme';
+import { colors } from '../../../theme';
 
-class AppointmentsView extends Component {
+export class AppointmentsView extends Component {
   constructor(props) {
     super(props);
   }
@@ -22,11 +22,8 @@ class AppointmentsView extends Component {
   render() {
     const { appointments } = this.props;
 
-    const {
-      theme: { colors }
-    } = this.props;
     return (
-      <SafeAreaView style={safeArea}>
+      <View style={safeArea}>
         <FlatList
           data={appointments}
           renderItem={({ item }) => <AppointmentCard appointment={item} onPressCard={appointment => this.handleOnPressCard(appointment)} />}
@@ -42,10 +39,20 @@ class AppointmentsView extends Component {
             </RoundedIcon>
           </View>
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }
+
+AppointmentsView.propTypes = {
+  colors: PropTypes.shape({
+    primary: PropTypes.string
+  })
+};
+
+AppointmentsView.defaultProps = {
+  colors: colors
+};
 
 const mapStateToProps = state => {
   return {
@@ -53,4 +60,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default compose(withTheme, checkAuthentication, connect(mapStateToProps, null))(AppointmentsView);
+export default compose(checkAuthentication, connect(mapStateToProps, null))(AppointmentsView);

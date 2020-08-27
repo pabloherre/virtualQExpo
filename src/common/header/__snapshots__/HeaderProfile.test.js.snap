@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderProfile /> can receive a color for the icon and should render it 1`] = `
+<Icon
+  allowFontScaling={false}
+  color="red"
+  name="user"
+  onPress={[Function]}
+  size={36}
+/>
+`;
+
+exports[`<HeaderProfile /> should render a default color if none passed 1`] = `
+<Icon
+  allowFontScaling={false}
+  color="#a1a2a4"
+  name="user"
+  onPress={[Function]}
+  size={36}
+/>
+`;

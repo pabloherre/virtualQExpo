@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppointmentNew> should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "paddingHorizontal": 40,
+      "paddingVertical": 20,
+    }
+  }
+>
+  <Component>
+    Type the store code or scan the QR code
+  </Component>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderColor": "gray",
+          "borderRadius": 30,
+          "borderWidth": 1,
+          "flex": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "marginRight": 5,
+          "paddingHorizontal": 10,
+        }
+      }
+    >
+      <Component
+        allowFontScaling={true}
+        label="Code"
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "flex": 8,
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <ForwardRef
+        id="searchCode"
+        onPress={[Function]}
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <Icon
+          allowFontScaling={false}
+          color="#f77027"
+          name="right"
+          size={20}
+        />
+      </ForwardRef>
+    </View>
+    <RoundedButton
+      buttonStyle={
+        Object {
+          "flex": 1,
+        }
+      }
+      label="SCAN"
+      onPress={[Function]}
+      textStyle={Object {}}
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "lightgray",
+        "borderBottomWidth": 1,
+        "borderStyle": "dashed",
+        "marginVertical": 20,
+        "width": "100%",
+      }
+    }
+  />
+  <Component>
+    You can also find stores near you
+  </Component>
+</View>
+`;

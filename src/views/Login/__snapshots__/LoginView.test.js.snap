@@ -1,0 +1,569 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginView /> should render correctly 1`] = `
+<LoginView>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "paddingHorizontal": 40,
+        "paddingVertical": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-start",
+          "paddingHorizontal": 40,
+          "paddingVertical": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "marginTop": 100,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginTop": 100,
+            }
+          }
+        >
+          <Image
+            source={1}
+            style={
+              Object {
+                "alignSelf": "center",
+                "marginVertical": 20,
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "marginVertical": 20,
+                }
+              }
+            />
+          </Image>
+          <TextInput
+            label="Email"
+            onChangeText={[Function]}
+            value=""
+          >
+            <View
+              style={
+                Object {
+                  "paddingBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "paddingBottom": 10,
+                    "paddingTop": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#0db4e4",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#0db4e4",
+                        "fontSize": 20,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    Email
+                  </Text>
+                </Text>
+                <Component
+                  allowFontScaling={true}
+                  onChangeText={[Function]}
+                  rejectResponderTermination={true}
+                  style={
+                    Object {
+                      "borderBottomColor": "#0db4e4",
+                      "borderBottomWidth": 1,
+                      "fontSize": 20,
+                      "height": 40,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    onChangeText={[Function]}
+                    rejectResponderTermination={true}
+                    style={
+                      Object {
+                        "borderBottomColor": "#0db4e4",
+                        "borderBottomWidth": 1,
+                        "fontSize": 20,
+                        "height": 40,
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </Component>
+              </View>
+            </View>
+          </TextInput>
+          <TextInput
+            label="Password"
+            onChangeText={[Function]}
+            secureTextEntry={true}
+            value=""
+          >
+            <View
+              style={
+                Object {
+                  "paddingBottom": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "paddingBottom": 10,
+                    "paddingTop": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#0db4e4",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#0db4e4",
+                        "fontSize": 20,
+                        "fontWeight": "bold",
+                      }
+                    }
+                  >
+                    Password
+                  </Text>
+                </Text>
+                <Component
+                  allowFontScaling={true}
+                  onChangeText={[Function]}
+                  rejectResponderTermination={true}
+                  secureTextEntry={true}
+                  style={
+                    Object {
+                      "borderBottomColor": "#0db4e4",
+                      "borderBottomWidth": 1,
+                      "fontSize": 20,
+                      "height": 40,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    onChangeText={[Function]}
+                    rejectResponderTermination={true}
+                    secureTextEntry={true}
+                    style={
+                      Object {
+                        "borderBottomColor": "#0db4e4",
+                        "borderBottomWidth": 1,
+                        "fontSize": 20,
+                        "height": 40,
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </Component>
+              </View>
+            </View>
+          </TextInput>
+          <View
+            style={
+              Object {
+                "marginVertical": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "marginVertical": 20,
+                }
+              }
+            >
+              <ForwardRef
+                onPress={[Function]}
+              >
+                <TouchableOpacity
+                  hostRef={null}
+                  onPress={[Function]}
+                >
+                  <ForwardRef(AnimatedComponentWrapper)
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        undefined,
+                        Object {
+                          "opacity": 1,
+                        },
+                      ]
+                    }
+                  >
+                    <AnimatedComponent
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Array [
+                          undefined,
+                          Object {
+                            "opacity": 1,
+                          },
+                        ]
+                      }
+                    >
+                      <View
+                        accessible={true}
+                        focusable={true}
+                        onClick={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          Object {
+                            "opacity": 1,
+                          }
+                        }
+                      >
+                        <View
+                          accessible={true}
+                          focusable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "opacity": 1,
+                            }
+                          }
+                        >
+                          <Component>
+                            <Typography
+                              theme={
+                                Object {
+                                  "colors": Object {
+                                    "background": "rgb(242, 242, 242)",
+                                    "border": "rgb(216, 216, 216)",
+                                    "card": "rgb(255, 255, 255)",
+                                    "notification": "rgb(255, 59, 48)",
+                                    "primary": "rgb(0, 122, 255)",
+                                    "text": "rgb(28, 28, 30)",
+                                  },
+                                  "dark": false,
+                                }
+                              }
+                            >
+                              <Text
+                                style={
+                                  Object {
+                                    "color": "rgb(28, 28, 30)",
+                                    "fontSize": 20,
+                                  }
+                                }
+                              >
+                                <Text
+                                  style={
+                                    Object {
+                                      "color": "rgb(28, 28, 30)",
+                                      "fontSize": 20,
+                                    }
+                                  }
+                                >
+                                  Dont have an account, register 
+                                  <Component
+                                    color="secondary"
+                                  >
+                                    <Typography
+                                      color="secondary"
+                                      theme={
+                                        Object {
+                                          "colors": Object {
+                                            "background": "rgb(242, 242, 242)",
+                                            "border": "rgb(216, 216, 216)",
+                                            "card": "rgb(255, 255, 255)",
+                                            "notification": "rgb(255, 59, 48)",
+                                            "primary": "rgb(0, 122, 255)",
+                                            "text": "rgb(28, 28, 30)",
+                                          },
+                                          "dark": false,
+                                        }
+                                      }
+                                    >
+                                      <Text
+                                        style={
+                                          Object {
+                                            "color": undefined,
+                                            "fontSize": 20,
+                                          }
+                                        }
+                                      >
+                                        <Text
+                                          style={
+                                            Object {
+                                              "color": undefined,
+                                              "fontSize": 20,
+                                            }
+                                          }
+                                        >
+                                          here
+                                        </Text>
+                                      </Text>
+                                    </Typography>
+                                  </Component>
+                                </Text>
+                              </Text>
+                            </Typography>
+                          </Component>
+                          <PressabilityDebugView
+                            color="cyan"
+                          />
+                        </View>
+                      </View>
+                    </AnimatedComponent>
+                  </ForwardRef(AnimatedComponentWrapper)>
+                </TouchableOpacity>
+              </ForwardRef>
+            </View>
+          </View>
+          <RoundedButton
+            buttonStyle={Object {}}
+            label="Login"
+            onPress={[Function]}
+            textStyle={Object {}}
+          >
+            <ForwardRef
+              onPress={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#f77027",
+                  "borderRadius": 30,
+                  "flexDirection": "row",
+                  "height": 60,
+                  "justifyContent": "space-around",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <TouchableOpacity
+                hostRef={null}
+                onPress={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#f77027",
+                    "borderRadius": 30,
+                    "flexDirection": "row",
+                    "height": 60,
+                    "justifyContent": "space-around",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  }
+                }
+              >
+                <ForwardRef(AnimatedComponentWrapper)
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#f77027",
+                        "borderRadius": 30,
+                        "flexDirection": "row",
+                        "height": 60,
+                        "justifyContent": "space-around",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "opacity": 1,
+                      },
+                    ]
+                  }
+                >
+                  <AnimatedComponent
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#f77027",
+                          "borderRadius": 30,
+                          "flexDirection": "row",
+                          "height": 60,
+                          "justifyContent": "space-around",
+                          "paddingHorizontal": 20,
+                          "paddingVertical": 10,
+                        },
+                        Object {
+                          "opacity": 1,
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#f77027",
+                          "borderRadius": 30,
+                          "flexDirection": "row",
+                          "height": 60,
+                          "justifyContent": "space-around",
+                          "opacity": 1,
+                          "paddingHorizontal": 20,
+                          "paddingVertical": 10,
+                        }
+                      }
+                    >
+                      <View
+                        accessible={true}
+                        focusable={true}
+                        onClick={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#f77027",
+                            "borderRadius": 30,
+                            "flexDirection": "row",
+                            "height": 60,
+                            "justifyContent": "space-around",
+                            "opacity": 1,
+                            "paddingHorizontal": 20,
+                            "paddingVertical": 10,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "white",
+                              "fontSize": 20,
+                              "paddingHorizontal": 10,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "paddingHorizontal": 10,
+                              }
+                            }
+                          >
+                            Login
+                          </Text>
+                        </Text>
+                        <PressabilityDebugView
+                          color="cyan"
+                        />
+                      </View>
+                    </View>
+                  </AnimatedComponent>
+                </ForwardRef(AnimatedComponentWrapper)>
+              </TouchableOpacity>
+            </ForwardRef>
+          </RoundedButton>
+        </View>
+      </View>
+    </View>
+  </View>
+</LoginView>
+`;

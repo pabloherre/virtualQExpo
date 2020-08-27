@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 
 import { RoundedButton } from '../../common/buttons';
 import { TextInput } from '../../common/inputs';
-import { AsyncStorage, Image, SafeAreaView, View } from 'react-native';
+import { Image, View } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+
 import { setUser } from '../../modules/auth/Auth.actions';
 
 import logo from '../../../assets/images/logo1.jpg';
 import { safeArea } from '../../styles/common.styles';
 
-class RegisterView extends Component {
+export class RegisterView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +39,7 @@ class RegisterView extends Component {
   render() {
     const { name, lastName, email, password } = this.state;
     return (
-      <SafeAreaView style={safeArea}>
+      <View style={safeArea}>
         <View style={{ marginTop: 100 }}>
           <Image source={logo} style={{ alignSelf: 'center' }} />
           <View style={{ marginBottom: 20 }}>
@@ -54,7 +56,7 @@ class RegisterView extends Component {
           {/*  title={'Appointments'}*/}
           {/*/>*/}
         </View>
-      </SafeAreaView>
+      </View>
     );
   }
 }

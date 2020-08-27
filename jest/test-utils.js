@@ -15,7 +15,7 @@ function connectedShallow(ui, initialState) {
   return shallow(<Provider store={store}>{ui}</Provider>);
 }
 
-function connectedMount(ui, initialState) {
+function connectedMount(ui, initialState, numberOfHoc) {
   const store = mockStore(initialState);
   return mount(<Provider store={store}>{ui}</Provider>);
 }

@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Typography from '../../common/typography/Typography';
 import { safeArea } from '../../styles/common.styles';
-import { SafeAreaView, TextInput, TouchableOpacity, View } from 'react-native';
+import { TextInput, TouchableOpacity, View } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { RoundedButton } from '../../common/buttons/';
+import { RoundedButton } from '../../common/buttons';
 import { AntDesign } from '@expo/vector-icons';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import { withTheme } from '../../common/theme/Theme';
+import { colors } from '../../../theme';
 import { compose } from 'redux';
 
-class AppointmentNew extends Component {
+export class AppointmentNew extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,11 +36,8 @@ class AppointmentNew extends Component {
 
   render() {
     const { hasPermissions, searchValue, currentLocation } = this.state;
-    const {
-      theme: { colors }
-    } = this.props;
     return (
-      <SafeAreaView style={safeArea}>
+      <View style={safeArea}>
         <Typography>Type the store code or scan the QR code</Typography>
 
         <View style={{ flexDirection: 'row' }}>
@@ -57,7 +55,7 @@ class AppointmentNew extends Component {
             }}
           >
             <TextInput style={{ flex: 8 }} value={searchValue} onChangeText={text => this.setState({ searchValue: text })} label="Code" />
-            <TouchableOpacity style={{ flex: 1 }} onPress={this.handleCode}>
+            <TouchableOpacity id="searchCode" style={{ flex: 1 }} onPress={this.handleCode}>
               <AntDesign name="right" size={20} color={colors.primary} />
             </TouchableOpacity>
           </View>
@@ -100,6 +98,7 @@ class AppointmentNew extends Component {
               {this.props.appointments.map(appointment => {
                 return (
                   <Marker
+                    key={appointment.id}
                     onPress={this.handleCode}
                     coordinate={{ latitude: appointment.latitude, longitude: appointment.longitude }}
                     title={appointment.business}
@@ -110,10 +109,20 @@ class AppointmentNew extends Component {
             </MapView>
           </View>
         )}
-      </SafeAreaView>
+      </View>
     );
   }
 }
+
+AppointmentNew.propTypes = {
+  colors: PropTypes.shape({
+    primary: PropTypes.string
+  })
+};
+
+AppointmentNew.defaultProps = {
+  colors: colors
+};
 
 function mapStateToProps(state) {
   return {
@@ -121,4 +130,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default compose(withTheme, connect(mapStateToProps))(AppointmentNew);
+export default connect(mapStateToProps)(AppointmentNew);

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppointmentsView /> should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "paddingHorizontal": 40,
+      "paddingVertical": 20,
+    }
+  }
+>
+  <FlatList
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+  <View
+    style={
+      Object {
+        "bottom": 20,
+        "left": 40,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "display": "flex",
+        }
+      }
+    >
+      <RoundedIcon
+        bkColor="#f77027"
+        shadow={true}
+        size={64}
+      >
+        <ForwardRef
+          onPress={[Function]}
+        >
+          <Icon
+            allowFontScaling={false}
+            color="white"
+            name="plus"
+            size={36}
+          />
+        </ForwardRef>
+      </RoundedIcon>
+    </View>
+  </View>
+</View>
+`;

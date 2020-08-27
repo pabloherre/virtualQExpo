@@ -14,7 +14,7 @@ exports[`<RoundedButton /> renders correctly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#F77027",
+      "backgroundColor": "#f77027",
       "borderRadius": 30,
       "flexDirection": "row",
       "height": 60,
