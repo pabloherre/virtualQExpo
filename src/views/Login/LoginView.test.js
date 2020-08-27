@@ -1,8 +1,8 @@
 import React from 'react';
 import { LoginView } from './LoginView';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import AuthService from '../../modules/auth/Auth.service';
-import AsyncStorage from '@react-native-community/async-storage';
+import UserService from '../../services/user/User.service';
 
 const mockProps = {
   setUser: jest.fn(),
@@ -15,6 +15,7 @@ describe('<LoginView />', () => {
   beforeEach(() => {
     mockProps.navigation.navigate.mockClear();
     AuthService.login.mockClear();
+    UserService.setUser.mockClear();
   });
 
   it('should render correctly', async () => {
@@ -36,24 +37,32 @@ describe('<LoginView />', () => {
   });
 
   it('should call authentication service login and redirect if success', async () => {
-    AuthService.login.mockReturnValueOnce(true);
+    const user = { name: 'test' };
+    const credentials = { email: 'test@email.com', password: '123456', strategy: 'local' };
+    AuthService.login.mockReturnValueOnce(user);
 
     const wrapper = shallow(<LoginView {...mockProps} />);
+    wrapper.setState(credentials);
     await wrapper.instance().handleLogin();
 
-    expect(AuthService.login).toHaveBeenCalled();
-    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled();
+    expect(AuthService.login).toHaveBeenCalledWith(credentials);
+    expect(UserService.setUser).toHaveBeenCalledWith(user);
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledWith('Appointments');
   });
 
   it('should call authentication service login and not redirect if error', async () => {
     AuthService.login.mockImplementation(() => {
-      throw new Error();
+      throw new Error('Invalid credentials');
     });
 
     const wrapper = shallow(<LoginView {...mockProps} />);
-    await wrapper.instance().handleLogin();
-
+    try {
+      await wrapper.instance().handleLogin();
+    } catch (e) {
+      expect(e.message).toBe('Invalid credentials');
+    }
     expect(AuthService.login).toThrow();
+    expect(UserService.setUser).toHaveBeenCalledTimes(0);
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledTimes(0);
   });
 });

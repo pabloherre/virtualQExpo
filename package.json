@@ -8,9 +8,9 @@
     "build:android": "expo build:android",
     "build:ios": "expo build:ios",
     "eject": "expo eject",
-    "test": "jest",
-    "test:dev": "jest --watch",
-    "test:update": "jest --updateSnapshot"
+    "test": "node ./node_modules/jest/bin/jest",
+    "test:dev": "node ./node_modules/jest/bin/jest --watch",
+    "test:update": "node ./node_modules/jest/bin/jest --updateSnapshot"
   },
   "dependencies": {
     "@feathersjs/feathers": "^4.5.8",

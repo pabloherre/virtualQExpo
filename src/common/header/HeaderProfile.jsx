@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { EvilIcons } from '@expo/vector-icons';
-import { AsyncStorage } from 'react-native';
 import { logout } from '../../modules/auth/Auth.actions';
 import { withTheme } from '../theme/Theme';
 import { compose } from 'redux';
 import { colors } from '../../../theme';
 import AuthService from '../../modules/auth/Auth.service';
+import UserService from '../../services/user/User.service';
 
 export class HeaderProfile extends Component {
-  onPress = () => {
-    AuthService.logout();
+  onPress = async () => {
+    await AuthService.logout();
+    await UserService.setUser(null);
     this.props.navigation.push('Login');
   };
   render() {

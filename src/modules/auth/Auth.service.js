@@ -1,25 +1,32 @@
 import store from '../../setup/store';
-import { login, logout } from './Auth.actions';
+import { login, loginFail, loginPending, logout } from './Auth.actions';
 import AsyncStorage from '@react-native-community/async-storage';
 import { authenticate } from '../../setup/feathersClient';
 
 export default class AuthService {
-  static login = async () => {
+  static login = async credentials => {
+    credentials = { strategy: 'local', ...credentials };
+    if (!credentials.email || !credentials.password) {
+      throw new Error('Must provide valid credentials');
+    }
+
     try {
-      await authenticate.create();
+      store.dispatch(loginPending());
+      const result = await authenticate.create(credentials);
       store.dispatch(login());
-      return true;
+      AsyncStorage.setItem('accessToken', result.accessToken);
+      return result.user;
     } catch (e) {
-      throw e;
+      store.dispatch(loginFail());
     }
   };
 
   static logout = () => {
-    store.dispatch(logout());
     try {
       AsyncStorage.removeItem('user');
+      store.dispatch(logout());
     } catch (error) {
-      console.log(error);
+      throw new Error('Cannot logout');
     }
   };
 }

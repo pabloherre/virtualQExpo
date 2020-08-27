@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextInput from '../../common/inputs/TextInput/TextInput';
-import { Text, Image, TouchableOpacity, View } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { Image, TouchableOpacity, View } from 'react-native';
 import RoundedButton from '../../common/buttons/RoundedButton/RoundedButton';
 import { setUser } from '../../modules/auth/Auth.actions';
 import { safeArea } from '../../styles/common.styles';
 import Typography from '../../common/typography/Typography';
 import logo from '../../../assets/images/logo1.jpg';
+import AuthService from '../../modules/auth/Auth.service';
+import UserService from '../../services/user/User.service';
 
 export class LoginView extends Component {
   constructor(props) {
@@ -23,9 +24,11 @@ export class LoginView extends Component {
   };
 
   handleLogin = async () => {
-    await AsyncStorage.setItem('user', JSON.stringify(this.state));
-    this.props.setUser(this.state);
-    this.props.navigation.navigate('Appointments');
+    const user = await AuthService.login(this.state);
+    if (user) {
+      await UserService.setUser(user);
+      this.props.navigation.navigate('Appointments');
+    }
   };
 
   render() {

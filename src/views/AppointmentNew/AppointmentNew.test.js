@@ -1,10 +1,8 @@
 import React from 'react';
 import { AppointmentNew } from './AppointmentNew';
 import { shallow } from 'enzyme';
-import { connectedMount } from '../../../jest/test-utils';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import * as Location from 'expo-location';
-import MapView, { Marker } from 'react-native-maps';
 
 import { appointments } from '../../../jest/mocks';
 

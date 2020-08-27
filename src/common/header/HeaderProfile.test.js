@@ -1,8 +1,8 @@
 import React from 'react';
 import { HeaderProfile } from './HeaderProfile';
-import { connectedRender, connectedShallow } from '../../../jest/test-utils';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import AuthService from '../../modules/auth/Auth.service';
+import UserService from '../../services/user/User.service';
 
 let component;
 
@@ -42,7 +42,8 @@ describe('<HeaderProfile />', () => {
   });
 
   it('it calls to logout when press button', async () => {
-    component.props().onPress();
+    await component.props().onPress();
     expect(AuthService.logout).toHaveBeenCalled();
+    expect(UserService.setUser).toHaveBeenCalled();
   });
 });

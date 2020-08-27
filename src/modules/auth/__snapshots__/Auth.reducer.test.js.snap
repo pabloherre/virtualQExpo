@@ -2,6 +2,7 @@
 
 exports[`Auth Reducer should handle LOGOUT action 1`] = `
 Object {
+  "error": null,
   "isLoggedIn": false,
   "loggedUser": Object {
     "name": "pepe",
@@ -11,6 +12,8 @@ Object {
 
 exports[`Auth Reducer should should return initial state 1`] = `
 Object {
+  "error": null,
   "isLoggedIn": false,
+  "loading": false,
 }
 `;
