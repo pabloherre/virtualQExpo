@@ -13,6 +13,9 @@
     "test:update": "jest --updateSnapshot"
   },
   "dependencies": {
+    "@feathersjs/feathers": "^4.5.8",
+    "@feathersjs/rest-client": "^4.5.8",
+    "@feathersjs/socketio-client": "^4.5.8",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
@@ -31,7 +34,9 @@
     "react-native-web": "~0.11.7",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

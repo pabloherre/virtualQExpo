@@ -18,6 +18,10 @@ import AppointmentNew from './src/views/AppointmentNew/AppointmentNew';
 import QRCodeView from './src/views/QRCode/QRCode';
 import { colors } from './theme';
 
+import initFeathersClient from './src/setup/feathersClient';
+
+initFeathersClient();
+
 const Stack = createStackNavigator();
 const RootStack = createStackNavigator();
 

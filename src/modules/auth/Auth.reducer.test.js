@@ -11,15 +11,6 @@ describe('Auth Reducer', () => {
     expect(authReducer(undefined, {})).toMatchSnapshot();
   });
 
-  it('should handle SET_USER action', async () => {
-    const INITIAL_STATE = {
-      isLoggedIn: false,
-      loggedUser: null
-    };
-
-    expect(authReducer(INITIAL_STATE, { type: SET_USER, payload: { name: 'pepe' } })).toMatchSnapshot();
-  });
-
   it('should handle LOGOUT action', async () => {
     const INITIAL_STATE = {
       isLoggedIn: true,

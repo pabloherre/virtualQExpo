@@ -7,15 +7,11 @@ import { logout } from '../../modules/auth/Auth.actions';
 import { withTheme } from '../theme/Theme';
 import { compose } from 'redux';
 import { colors } from '../../../theme';
+import AuthService from '../../modules/auth/Auth.service';
 
 export class HeaderProfile extends Component {
-  onPress = async () => {
-    this.props.logout();
-    try {
-      await AsyncStorage.removeItem('user');
-    } catch (e) {
-      console.error(e);
-    }
+  onPress = () => {
+    AuthService.logout();
     this.props.navigation.push('Login');
   };
   render() {

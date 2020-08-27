@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Text } from 'react-native';
-import { setUser } from '../Auth.actions';
-
+import UserService from '../../../services/user/User.service';
 export default function checkAuthentication(WrappedComponent) {
   class IsAuthenticated extends Component {
     constructor(props) {
@@ -14,7 +13,8 @@ export default function checkAuthentication(WrappedComponent) {
       if (!this.props.isLoggedIn) {
         let data = await AsyncStorage.getItem('user');
         if (data) {
-          this.props.setUser(JSON.parse(data));
+          AuthService.login();
+          UserService.setUser(data);
         } else {
           this.props.navigation.navigate('Login');
         }
@@ -36,9 +36,5 @@ export default function checkAuthentication(WrappedComponent) {
     };
   }
 
-  const mapDispatchToProps = {
-    setUser
-  };
-
-  return connect(mapStateToProps, mapDispatchToProps)(IsAuthenticated);
+  return connect(mapStateToProps, null)(IsAuthenticated);
 }

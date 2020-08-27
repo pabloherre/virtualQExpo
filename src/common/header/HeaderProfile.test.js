@@ -2,16 +2,24 @@ import React from 'react';
 import { HeaderProfile } from './HeaderProfile';
 import { connectedRender, connectedShallow } from '../../../jest/test-utils';
 import { shallow, mount } from 'enzyme';
+import AuthService from '../../modules/auth/Auth.service';
 
 let component;
 
 const mockProps = {
-  logout: jest.fn()
+  logout: jest.fn(),
+  navigation: {
+    push: jest.fn()
+  }
 };
 
 describe('<HeaderProfile />', () => {
   beforeEach(() => {
     component = shallow(<HeaderProfile {...mockProps} />);
+  });
+  afterEach(() => {
+    mockProps.navigation.push.mockClear();
+    AuthService.logout.mockClear();
   });
   // it('renders correctly', async () => {
   //   expect(component).toMatchSnapshot();
@@ -35,6 +43,6 @@ describe('<HeaderProfile />', () => {
 
   it('it calls to logout when press button', async () => {
     component.props().onPress();
-    expect(component.instance().props.logout).toHaveBeenCalled();
+    expect(AuthService.logout).toHaveBeenCalled();
   });
 });
