@@ -6,14 +6,19 @@ import { logout } from '../../modules/auth/Auth.actions';
 import { withTheme } from '../theme/Theme';
 import { compose } from 'redux';
 import { colors } from '../../../theme';
-import AuthService from '../../modules/auth/Auth.service';
-import UserService from '../../services/user/User.service';
+import { SideMenuService } from '../sideMenu/SideMenu.service';
 
 export class HeaderProfile extends Component {
   onPress = async () => {
-    await AuthService.logout();
-    await UserService.setUser(null);
-    this.props.navigation.push('Login');
+    if (this.props.menuOpen) {
+      SideMenuService.closeMenu();
+    } else {
+      SideMenuService.openMenu();
+    }
+
+    // await AuthService.logout();
+    // await UserService.setUser(null);
+    // this.props.navigation.push('Login');
   };
   render() {
     const { colors } = this.props;
@@ -31,8 +36,14 @@ HeaderProfile.defaultProps = {
   colors: colors
 };
 
+const mapStateToProps = state => {
+  return {
+    menuOpen: state.sideMenu.open
+  };
+};
+
 const mapDispatchToProps = {
   logout
 };
 
-export default compose(withTheme, connect(null, mapDispatchToProps))(HeaderProfile);
+export default compose(withTheme, connect(mapStateToProps, mapDispatchToProps))(HeaderProfile);

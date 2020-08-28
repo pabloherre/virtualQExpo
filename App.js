@@ -20,6 +20,8 @@ import { colors } from './theme';
 
 import initFeathersClient from './src/setup/feathersClient';
 import FlashMessage from 'react-native-flash-message';
+import withSideMenu from './src/common/sideMenu/SideMenuHOC';
+import Menu from './src/common/sideMenu/SideMenu';
 
 initFeathersClient();
 
@@ -44,7 +46,7 @@ function StackScreen() {
       />
       <Stack.Screen
         name="Appointments"
-        component={AppointmentsView}
+        component={withSideMenu(AppointmentsView, Menu)}
         options={({ navigation }) => ({
           headerTitle: 'My Appointments',
           headerTitleAlign: 'center',

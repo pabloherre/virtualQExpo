@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
-import { Text } from 'react-native';
 import UserService from '../../../services/user/User.service';
+
 export default function checkAuthentication(WrappedComponent) {
   class IsAuthenticated extends Component {
     constructor(props) {
       super(props);
     }
     async componentDidMount() {
+      console.log(this.props.isLoggedIn);
       if (!this.props.isLoggedIn) {
         let data = await AsyncStorage.getItem('user');
+        console.log(data);
         if (data) {
           AuthService.login();
           UserService.setUser(data);
@@ -22,7 +24,7 @@ export default function checkAuthentication(WrappedComponent) {
     }
 
     render() {
-      return this.props.isLoggedIn ? <WrappedComponent {...this.props} /> : <Text>Loading...</Text>;
+      return this.props.isLoggedIn ? <WrappedComponent {...this.props} /> : <></>;
     }
   }
 
