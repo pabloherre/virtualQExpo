@@ -5,9 +5,11 @@ import { RoundedButton } from '../../common/buttons';
 import { TextInput } from '../../common/inputs';
 import { Image, View } from 'react-native';
 
-import logo from '../../../assets/images/logo1.jpg';
+import logo from '../../../assets/images/logo.png';
 import { safeArea } from '../../styles/common.styles';
 import UserService from '../../services/user/User.service';
+import { compose } from 'redux';
+import withBackground from '../../common/background/Background';
 
 export class RegisterView extends Component {
   constructor(props) {
@@ -36,8 +38,8 @@ export class RegisterView extends Component {
     const { firstName, lastName, email, password } = this.state;
     return (
       <View style={safeArea}>
-        <View style={{ marginTop: 100 }}>
-          <Image source={logo} style={{ alignSelf: 'center' }} />
+        <View style={{ marginTop: 80 }}>
+          <Image source={logo} style={{ alignSelf: 'center', marginTop: 10, marginBottom: 40, width: 350, resizeMode: 'contain' }} />
           <View style={{ marginBottom: 20 }}>
             <TextInput value={firstName} onChangeText={text => this.handleChange(text, 'firstName')} label="Nombre" />
             <TextInput value={lastName} onChangeText={text => this.handleChange(text, 'lastName')} label="Apellido" />
@@ -57,4 +59,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(RegisterView);
+export default compose(withBackground, connect(mapStateToProps, null))(RegisterView);

@@ -41,6 +41,9 @@ function StackScreen() {
         name="AppointmentDetails"
         component={AppointmentDetailsView}
         options={{
+          headerStyle: {
+            backgroundColor: theme.colors.background
+          },
           headerTitle: 'Back'
         }}
       />
@@ -48,7 +51,10 @@ function StackScreen() {
         name="Appointments"
         component={withSideMenu(AppointmentsView, Menu)}
         options={({ navigation }) => ({
-          headerTitle: 'My Appointments',
+          headerStyle: {
+            backgroundColor: theme.colors.background
+          },
+          headerTitle: 'My Turns',
           headerTitleAlign: 'center',
           headerTitleStyle: { color: theme.colors.secondary },
           headerLeft: props => <HeaderProfile {...props} navigation={navigation} />,
@@ -61,6 +67,9 @@ function StackScreen() {
         name="AppointmentNew"
         component={AppointmentNew}
         options={{
+          headerStyle: {
+            backgroundColor: theme.colors.background
+          },
           headerTitle: 'New Appointment',
           headerTitleStyle: { color: theme.colors.secondary },
           headerTitleAlign: 'center'

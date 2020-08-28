@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import RoundedButton from '../buttons/RoundedButton/RoundedButton';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import AuthService from '../../modules/auth/Auth.service';
 import UserService from '../../services/user/User.service';
 import { colors } from '../../../theme';
-import { SimpleLineIcons } from '@expo/vector-icons';
+import { FontAwesome, SimpleLineIcons } from '@expo/vector-icons';
 import { SideMenuService } from './SideMenu.service';
+import Typography from '../typography/Typography';
 
 class Menu extends React.Component {
   onPress = async () => {
@@ -17,11 +19,28 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'stretch', backgroundColor: colors.card, paddingHorizontal: 10, paddingVertical: 10 }}>
-        <View style={{ flex: 1 }}>
-          <Text>User</Text>
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'stretch',
+          backgroundColor: colors.card
+        }}
+      >
+        <View
+          style={{
+            alignItems: 'center',
+            borderBottomWidth: 1,
+            paddingVertical: 20,
+            marginHorizontal: 20,
+            borderBottomColor: colors.border
+          }}
+        >
+          <FontAwesome name="user-circle" size={120} color={colors.secondary} style={{ paddingBottom: 20 }} />
+          <Typography color="secondary" size="small">
+            {this.props.user && this.props.user.email}
+          </Typography>
         </View>
-        <View style={{ marginVertical: 10 }}>
+        <View style={{ flex: 1, marginVertical: 10, width: 200, alignSelf: 'center', justifyContent: 'flex-end' }}>
           <RoundedButton startIcon={<SimpleLineIcons name="logout" size={24} color="white" />} label="Logout" onPress={this.onPress} />
         </View>
       </View>
@@ -29,4 +48,10 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+const mapStateToProps = state => {
+  return {
+    user: state.user.data
+  };
+};
+
+export default connect(mapStateToProps, null)(Menu);

@@ -2,7 +2,8 @@ import React from 'react';
 import SideMenu from 'react-native-side-menu';
 import { connect } from 'react-redux';
 import { SideMenuService } from './SideMenu.service';
-import { Animated } from 'react-native';
+import { Animated, View } from 'react-native';
+import { colors } from '../../../theme.js';
 
 export default function withSideMenu(WrappedComponent, WrappedMenu) {
   class WithSideMenu extends React.Component {
@@ -24,7 +25,9 @@ export default function withSideMenu(WrappedComponent, WrappedMenu) {
             }
           }}
         >
-          <WrappedComponent {...this.props} />
+          <View style={{ flex: 1, backgroundColor: colors.background }}>
+            <WrappedComponent {...this.props} />
+          </View>
         </SideMenu>
       );
     }

@@ -20,21 +20,23 @@ class AppointmentDetailsView extends Component {
           <ScrollView id="appointmentDetailContainer">
             <AppointmentCard appointment={appointment} />
 
-            <MapView
-              style={{ height: 200, padding: 20, margin: 5 }}
-              initialRegion={{
-                latitude: appointment.latitude || 0,
-                longitude: appointment.longitude || 0,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
-              }}
-            >
-              <Marker
-                coordinate={{ latitude: appointment.latitude, longitude: appointment.longitude }}
-                title={appointment.business}
-                description={appointment.business}
-              />
-            </MapView>
+            <View style={{ borderRadius: 30, overflow: 'hidden', flex: 1 }}>
+              <MapView
+                style={{ height: 200, padding: 20, margin: 5 }}
+                initialRegion={{
+                  latitude: appointment.latitude || 0,
+                  longitude: appointment.longitude || 0,
+                  latitudeDelta: 0.0022,
+                  longitudeDelta: 0.0022
+                }}
+              >
+                <Marker
+                  coordinate={{ latitude: appointment.latitude, longitude: appointment.longitude }}
+                  title={appointment.business}
+                  description={appointment.business}
+                />
+              </MapView>
+            </View>
 
             <View style={styles.infoCard}>
               <View style={{ flex: 4 }}>

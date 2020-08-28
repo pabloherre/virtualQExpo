@@ -8,12 +8,13 @@ export default StyleSheet.create({
   },
   input: {
     height: 40,
-    fontSize: 20,
+    fontSize: 18,
     borderBottomColor: colors.secondary,
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    marginBottom: 10
   },
   label: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     color: colors.secondary
   }

@@ -4,7 +4,7 @@ import { withTheme } from '../theme/Theme';
 
 const size = {
   small: 14,
-  medium: 20,
+  medium: 18,
   large: 30
 };
 

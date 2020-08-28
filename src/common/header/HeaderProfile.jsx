@@ -15,11 +15,8 @@ export class HeaderProfile extends Component {
     } else {
       SideMenuService.openMenu();
     }
-
-    // await AuthService.logout();
-    // await UserService.setUser(null);
-    // this.props.navigation.push('Login');
   };
+
   render() {
     const { colors } = this.props;
     return <EvilIcons name="user" size={36} color={colors.text} onPress={this.onPress} />;
