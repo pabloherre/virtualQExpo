@@ -9,6 +9,7 @@ import Typography from '../../common/typography/Typography';
 import logo from '../../../assets/images/logo1.jpg';
 import AuthService from '../../modules/auth/Auth.service';
 import UserService from '../../services/user/User.service';
+import { showMessage } from 'react-native-flash-message';
 
 export class LoginView extends Component {
   constructor(props) {
@@ -24,10 +25,19 @@ export class LoginView extends Component {
   };
 
   handleLogin = async () => {
-    const user = await AuthService.login(this.state);
-    if (user) {
-      await UserService.setUser(user);
-      this.props.navigation.navigate('Appointments');
+    try {
+      const user = await AuthService.login(this.state);
+      if (user) {
+        await UserService.setUser(user);
+        this.props.navigation.navigate('Appointments');
+      }
+    } catch (e) {
+      showMessage({
+        message: 'Login Failed',
+        description: e.message,
+        type: 'danger',
+        icon: 'danger'
+      });
     }
   };
 
@@ -46,7 +56,7 @@ export class LoginView extends Component {
               </Typography>
             </TouchableOpacity>
           </View>
-          <RoundedButton label="Login" onPress={this.handleLogin} />
+          <RoundedButton label="Login" onPress={this.handleLogin} isLoading={this.props.loading} />
         </View>
       </View>
     );
@@ -54,7 +64,9 @@ export class LoginView extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    loading: state.auth.loading
+  };
 }
 
 const mapDispatchToProps = {

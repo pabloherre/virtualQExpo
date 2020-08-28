@@ -18,3 +18,4 @@ jest-stare/**/*
 .vscode/**/*
 .idea/**/*
 *.code-workspace
+yarn.lock

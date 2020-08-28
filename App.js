@@ -19,6 +19,7 @@ import QRCodeView from './src/views/QRCode/QRCode';
 import { colors } from './theme';
 
 import initFeathersClient from './src/setup/feathersClient';
+import FlashMessage from 'react-native-flash-message';
 
 initFeathersClient();
 
@@ -91,6 +92,7 @@ export default function App() {
           <RootStack.Screen name="QRCode" component={QRCodeView} options={{ headerShown: false }} />
         </RootStack.Navigator>
       </NavigationContainer>
+      <FlashMessage position={'bottom'} floating={true} />
     </Provider>
   );
 }

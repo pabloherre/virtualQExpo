@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 
 import { RoundedButton } from '../../common/buttons';
 import { TextInput } from '../../common/inputs';
-import { Image, View, Button } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { Image, View } from 'react-native';
 
 import logo from '../../../assets/images/logo1.jpg';
 import { safeArea } from '../../styles/common.styles';
-import AuthService from '../../modules/auth/Auth.service';
 import UserService from '../../services/user/User.service';
 
 export class RegisterView extends Component {
@@ -46,17 +44,17 @@ export class RegisterView extends Component {
             <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
             <TextInput value={password} secureTextEntry onChangeText={text => this.handleChange(text, 'password')} label="Password" />
           </View>
-          <RoundedButton label="REGISTRARME" onPress={this.handleRegister} />
-          <Button
-            onPress={() => {
-              this.props.navigation.navigate('Appointments');
-            }}
-            title={'Appointments'}
-          />
+          <RoundedButton label="REGISTRARME" onPress={this.handleRegister} isLoading={this.props.loading} />
         </View>
       </View>
     );
   }
 }
 
-export default RegisterView;
+function mapStateToProps(state) {
+  return {
+    loading: state.user.loading
+  };
+}
+
+export default connect(mapStateToProps, null)(RegisterView);

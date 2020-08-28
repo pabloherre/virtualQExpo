@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Text, TouchableOpacity } from 'react-native';
 import styles from './RoundedButton.styles';
 
 class RoundedButton extends Component {
@@ -9,11 +9,11 @@ class RoundedButton extends Component {
   }
 
   render() {
-    const { label, onPress, buttonStyle, textStyle, startIcon, endIcon, ...rest } = this.props;
+    const { label, onPress, buttonStyle, textStyle, startIcon, endIcon, isLoading, ...rest } = this.props;
     return (
       <TouchableOpacity style={{ ...styles.button, ...buttonStyle }} onPress={onPress} {...rest}>
         {startIcon}
-        <Text style={{ ...styles.buttonText, ...textStyle }}>{label}</Text>
+        {isLoading ? <ActivityIndicator size="large" color="white" /> : <Text style={{ ...styles.buttonText, ...textStyle }}>{label}</Text>}
         {endIcon}
       </TouchableOpacity>
     );
@@ -31,7 +31,8 @@ RoundedButton.propTypes = {
   textStyle: PropTypes.object,
   startIcon: PropTypes.element,
   endIcon: PropTypes.element,
-  onPress: PropTypes.func
+  onPress: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
 export default RoundedButton;
