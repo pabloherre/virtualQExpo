@@ -1,7 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
 import checkAuthentication from './CheckAuthentication';
-import { connectedShallow, connectedMount } from '../../../../jest/test-utils';
+import { connectedMount, connectedShallow } from '../../../../jest/test-utils';
 import DummyComponent from '../../../../jest/mocks/DummyComponent';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -26,7 +25,7 @@ describe('withLoading should render', () => {
 
   it('should show loading when its not logged in', async () => {
     const wrapper = connectedShallow(<CheckAuthenticationComponent />, { auth: { isLoggedIn: false } });
-    expect(wrapper.html()).toBe('<Text>Loading...</Text>');
+    expect(wrapper.html()).toBe('<></>');
   });
 
   it('should render wrapped component if user is logged in', async () => {

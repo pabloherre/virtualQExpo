@@ -2,12 +2,12 @@ import React from 'react';
 import { HeaderProfile } from './HeaderProfile';
 import { shallow } from 'enzyme';
 import AuthService from '../../modules/auth/Auth.service';
-import UserService from '../../services/user/User.service';
+import { SideMenuService } from '../sideMenu/SideMenu.service';
+import { connectedMount } from '../../../jest/test-utils';
 
 let component;
 
 const mockProps = {
-  logout: jest.fn(),
   navigation: {
     push: jest.fn()
   }
@@ -20,6 +20,8 @@ describe('<HeaderProfile />', () => {
   afterEach(() => {
     mockProps.navigation.push.mockClear();
     AuthService.logout.mockClear();
+    SideMenuService.openMenu.mockClear();
+    SideMenuService.closeMenu.mockClear();
   });
   // it('renders correctly', async () => {
   //   expect(component).toMatchSnapshot();
@@ -41,9 +43,15 @@ describe('<HeaderProfile />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('it calls to logout when press button', async () => {
-    await component.props().onPress();
-    expect(AuthService.logout).toHaveBeenCalled();
-    expect(UserService.setUser).toHaveBeenCalled();
+  it('it calls to open side menu when press button', async () => {
+    const component = connectedMount(<HeaderProfile {...mockProps} />, { sideMenu: { open: true } });
+    await component.childAt(0).childAt(0).props().onPress();
+    expect(SideMenuService.openMenu).toHaveBeenCalled();
+  });
+
+  it('it calls to close side menu when press button', async () => {
+    const component = connectedMount(<HeaderProfile {...mockProps} />, { sideMenu: { open: false } });
+    await component.childAt(0).childAt(0).props().onPress();
+    expect(SideMenuService.closeMenu).toHaveBeenCalled();
   });
 });

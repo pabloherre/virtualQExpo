@@ -1,9 +1,8 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import { AppointmentsView } from './AppointmentsView';
 import { appointments } from '../../../jest/mocks';
-import { connectedShallow, connectedMount } from '../../../jest/test-utils';
 
 const mockProps = {
   appointments,

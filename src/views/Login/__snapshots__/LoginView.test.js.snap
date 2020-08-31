@@ -25,14 +25,14 @@ exports[`<LoginView /> should render correctly 1`] = `
       <View
         style={
           Object {
-            "marginTop": 100,
+            "marginTop": 80,
           }
         }
       >
         <View
           style={
             Object {
-              "marginTop": 100,
+              "marginTop": 80,
             }
           }
         >
@@ -41,7 +41,10 @@ exports[`<LoginView /> should render correctly 1`] = `
             style={
               Object {
                 "alignSelf": "center",
-                "marginVertical": 20,
+                "marginBottom": 40,
+                "marginTop": 10,
+                "resizeMode": "contain",
+                "width": 350,
               }
             }
           >
@@ -50,7 +53,10 @@ exports[`<LoginView /> should render correctly 1`] = `
               style={
                 Object {
                   "alignSelf": "center",
-                  "marginVertical": 20,
+                  "marginBottom": 40,
+                  "marginTop": 10,
+                  "resizeMode": "contain",
+                  "width": 350,
                 }
               }
             />
@@ -80,7 +86,7 @@ exports[`<LoginView /> should render correctly 1`] = `
                   style={
                     Object {
                       "color": "#0db4e4",
-                      "fontSize": 20,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
@@ -89,7 +95,7 @@ exports[`<LoginView /> should render correctly 1`] = `
                     style={
                       Object {
                         "color": "#0db4e4",
-                        "fontSize": 20,
+                        "fontSize": 16,
                         "fontWeight": "bold",
                       }
                     }
@@ -105,8 +111,9 @@ exports[`<LoginView /> should render correctly 1`] = `
                     Object {
                       "borderBottomColor": "#0db4e4",
                       "borderBottomWidth": 1,
-                      "fontSize": 20,
+                      "fontSize": 18,
                       "height": 40,
+                      "marginBottom": 10,
                     }
                   }
                   underlineColorAndroid="transparent"
@@ -120,8 +127,9 @@ exports[`<LoginView /> should render correctly 1`] = `
                       Object {
                         "borderBottomColor": "#0db4e4",
                         "borderBottomWidth": 1,
-                        "fontSize": 20,
+                        "fontSize": 18,
                         "height": 40,
+                        "marginBottom": 10,
                       }
                     }
                     underlineColorAndroid="transparent"
@@ -157,7 +165,7 @@ exports[`<LoginView /> should render correctly 1`] = `
                   style={
                     Object {
                       "color": "#0db4e4",
-                      "fontSize": 20,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
@@ -166,7 +174,7 @@ exports[`<LoginView /> should render correctly 1`] = `
                     style={
                       Object {
                         "color": "#0db4e4",
-                        "fontSize": 20,
+                        "fontSize": 16,
                         "fontWeight": "bold",
                       }
                     }
@@ -183,8 +191,9 @@ exports[`<LoginView /> should render correctly 1`] = `
                     Object {
                       "borderBottomColor": "#0db4e4",
                       "borderBottomWidth": 1,
-                      "fontSize": 20,
+                      "fontSize": 18,
                       "height": 40,
+                      "marginBottom": 10,
                     }
                   }
                   underlineColorAndroid="transparent"
@@ -199,8 +208,9 @@ exports[`<LoginView /> should render correctly 1`] = `
                       Object {
                         "borderBottomColor": "#0db4e4",
                         "borderBottomWidth": 1,
-                        "fontSize": 20,
+                        "fontSize": 18,
                         "height": 40,
+                        "marginBottom": 10,
                       }
                     }
                     underlineColorAndroid="transparent"
@@ -213,6 +223,7 @@ exports[`<LoginView /> should render correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "center",
                 "marginVertical": 20,
               }
             }
@@ -220,6 +231,7 @@ exports[`<LoginView /> should render correctly 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "center",
                   "marginVertical": 20,
                 }
               }
@@ -321,7 +333,7 @@ exports[`<LoginView /> should render correctly 1`] = `
                                 style={
                                   Object {
                                     "color": "rgb(28, 28, 30)",
-                                    "fontSize": 20,
+                                    "fontSize": 18,
                                   }
                                 }
                               >
@@ -329,11 +341,11 @@ exports[`<LoginView /> should render correctly 1`] = `
                                   style={
                                     Object {
                                       "color": "rgb(28, 28, 30)",
-                                      "fontSize": 20,
+                                      "fontSize": 18,
                                     }
                                   }
                                 >
-                                  Dont have an account, register 
+                                  Don't have an account?, register 
                                   <Component
                                     color="secondary"
                                   >
@@ -357,7 +369,7 @@ exports[`<LoginView /> should render correctly 1`] = `
                                         style={
                                           Object {
                                             "color": undefined,
-                                            "fontSize": 20,
+                                            "fontSize": 18,
                                           }
                                         }
                                       >
@@ -365,11 +377,11 @@ exports[`<LoginView /> should render correctly 1`] = `
                                           style={
                                             Object {
                                               "color": undefined,
-                                              "fontSize": 20,
+                                              "fontSize": 18,
                                             }
                                           }
                                         >
-                                          here
+                                          here!
                                         </Text>
                                       </Text>
                                     </Typography>

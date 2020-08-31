@@ -24,9 +24,10 @@ jest.mock('../src/setup/feathersClient', () => {
     turnApi: mockfeathersMethods,
     authenticate: {
       create: jest.fn()
-    } 
+    }
   };
 });
 jest.mock('../src/services/user/User.service');
 jest.mock('../src/modules/auth/Auth.service');
+jest.mock('../src/common/sideMenu/SideMenu.service');
 jest.genMockFromModule('../src/setup/store');
