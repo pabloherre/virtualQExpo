@@ -15,14 +15,15 @@ describe('<AppointmentsView />', () => {
   afterEach(() => {
     mockProps.navigation.navigate.mockClear();
   });
+
   it('should render correctly', async () => {
     const wrapper = shallow(<AppointmentsView />);
 
     expect(wrapper).toMatchSnapshot();
   });
+
   it('should pass the appointments to the flatList component', async () => {
     const wrapper = shallow(<AppointmentsView {...mockProps} />);
-
     expect(wrapper.find('FlatList').shallow().instance().props.data.length).toBe(5);
   });
 
@@ -30,7 +31,6 @@ describe('<AppointmentsView />', () => {
     const wrapper = shallow(<AppointmentsView {...mockProps} />);
 
     wrapper.instance().handleOnPressCard();
-
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled();
   });
 
@@ -38,7 +38,6 @@ describe('<AppointmentsView />', () => {
     const wrapper = shallow(<AppointmentsView {...mockProps} />);
 
     wrapper.find('RoundedIcon').childAt(0).props().onPress();
-
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled();
   });
 });

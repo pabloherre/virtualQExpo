@@ -1,7 +1,7 @@
 export const appointment = {
   _id: 1,
-  date: new Date(),
-  number: 1,
+  date: new Date("2020-01-01"),
+  number: 5,
   status: 'ACTIVE',
   turn: {
     name: 'PAMI',
@@ -9,7 +9,7 @@ export const appointment = {
     currentTurn: 1,
     code: 'adDweD',
     business: {
-      name: 'CabezaYHombro',
+      name: 'Business Name',
       category: '5f4d126aeb085b0ef440f066',
       address: 'San Martin 849',
       latitude: -32.3232,

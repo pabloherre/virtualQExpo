@@ -1,4 +1,4 @@
-import { REGISTER_USER_FAILED, REGISTER_USER_PENDING, REGISTER_USER_SUCCESS, SET_USER } from './User.actions';
+import { APPOINTMENT_FIND_FAILED, APPOINTMENT_FIND_PENDING, APPOINTMENT_FIND_SUCCESS } from './Appointment.actions';
 
 const initialState = {
   data: null,
@@ -6,20 +6,17 @@ const initialState = {
   loading: false
 };
 
-const userReducer = (state = initialState, action) => {
+const appointmentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTER_USER_PENDING:
+    case APPOINTMENT_FIND_PENDING:
       return Object.assign({}, state, { loading: true, data: null });
-    case REGISTER_USER_SUCCESS:
+    case APPOINTMENT_FIND_SUCCESS:
       return Object.assign({}, state, { loading: false, data: action.payload });
-    case REGISTER_USER_FAILED:
+    case APPOINTMENT_FIND_FAILED:
       return Object.assign({}, state, { loading: false, data: null, error: action.payload });
-    case SET_USER:
-      return Object.assign({}, state, { data: action.payload });
-
     default:
       return state;
   }
 };
 
-export default userReducer;
+export default appointmentReducer;

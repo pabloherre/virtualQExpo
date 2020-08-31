@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AppointmentCard /> should render correctly 1`] = `
+<ForwardRef
+  accessibilityLabel="testTouchableAppointmentCard"
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#e7eefb",
+      "borderRadius": 10,
+      "flex": 1,
+      "margin": 5,
+      "padding": 20,
+    }
+  }
+  testID="testTouchableAppointmentCard"
+>
+  <View>
+    <Component
+      accessibilityLabel="testDateAppointmentDate"
+      color="primary"
+      size="small"
+      testID="testDateAppointmentDate"
+    >
+      Tue Dec 31 2019 21:00:00 GMT-0300 (Argentina Standard Time)
+    </Component>
+    <Component
+      accessibilityLabel="testTextAppointmentBusiness"
+      testID="testTextAppointmentBusiness"
+      textStyles={
+        Object {
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Business Name
+    </Component>
+  </View>
+  <View>
+    <Text>
+       
+    </Text>
+    <Component
+      size="small"
+    >
+      Your #
+    </Component>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <Component
+        accessibilityLabel="testTextAppointmentNumber"
+        color="secondary"
+        size="large"
+        testID="testTextAppointmentNumber"
+      >
+        5
+      </Component>
+      <Icon
+        allowFontScaling={false}
+        color="#a1a2a4"
+        name="right"
+        size={24}
+      />
+      <Component
+        accessibilityLabel="testTextAppointmentNumberAhead"
+        color="primary"
+        size="large"
+        testID="testTextAppointmentNumberAhead"
+      >
+        4
+      </Component>
+      <Component
+        size="small"
+        textStyles={
+          Object {
+            "width": 60,
+          }
+        }
+      >
+        Numbers ahead
+      </Component>
+    </View>
+  </View>
+</ForwardRef>
+`;
