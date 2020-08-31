@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "virtualQueue",
+    "name": "Virtual Queue",
     "slug": "virtualQueue",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,13 +13,20 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "package": "com.intelifaz.virtualqueue",
-      "versionCode": 1
+      "versionCode": 1,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDOI53UrBOu81TqM_8ms73T0MU5ZNaFwwE"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
