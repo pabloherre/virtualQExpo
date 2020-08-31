@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderProfile } from './HeaderProfile';
+import ConnectedHeaderProfile, { HeaderProfile } from './HeaderProfile';
 import { shallow } from 'enzyme';
 import AuthService from '../../modules/auth/Auth.service';
 import { SideMenuService } from '../sideMenu/SideMenu.service';
@@ -44,14 +44,14 @@ describe('<HeaderProfile />', () => {
   });
 
   it('it calls to open side menu when press button', async () => {
-    const component = connectedMount(<HeaderProfile {...mockProps} />, { sideMenu: { open: true } });
-    await component.childAt(0).childAt(0).props().onPress();
+    const component = connectedMount(<ConnectedHeaderProfile />, { sideMenu: { open: false } });
+    await component.childAt(0).childAt(0).childAt(0).childAt(0).props().onPress();
     expect(SideMenuService.openMenu).toHaveBeenCalled();
   });
 
   it('it calls to close side menu when press button', async () => {
-    const component = connectedMount(<HeaderProfile {...mockProps} />, { sideMenu: { open: false } });
-    await component.childAt(0).childAt(0).props().onPress();
+    const component = connectedMount(<ConnectedHeaderProfile />, { sideMenu: { open: true } });
+    await component.childAt(0).childAt(0).childAt(0).childAt(0).props().onPress();
     expect(SideMenuService.closeMenu).toHaveBeenCalled();
   });
 });

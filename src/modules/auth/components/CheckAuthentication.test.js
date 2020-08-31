@@ -25,7 +25,7 @@ describe('withLoading should render', () => {
 
   it('should show loading when its not logged in', async () => {
     const wrapper = connectedShallow(<CheckAuthenticationComponent />, { auth: { isLoggedIn: false } });
-    expect(wrapper.html()).toBe('<></>');
+    expect(wrapper.html()).toBe('');
   });
 
   it('should render wrapped component if user is logged in', async () => {

@@ -10,10 +10,9 @@ export default function checkAuthentication(WrappedComponent) {
       super(props);
     }
     async componentDidMount() {
-      console.log(this.props.isLoggedIn);
       if (!this.props.isLoggedIn) {
         let data = await AsyncStorage.getItem('user');
-        console.log(data);
+
         if (data) {
           AuthService.login();
           UserService.setUser(data);

@@ -10,10 +10,10 @@ import { SideMenuService } from '../sideMenu/SideMenu.service';
 
 export class HeaderProfile extends Component {
   onPress = async () => {
-    if (this.props.menuOpen) {
-      SideMenuService.closeMenu();
-    } else {
+    if (!this.props.menuOpen) {
       SideMenuService.openMenu();
+    } else {
+      SideMenuService.closeMenu();
     }
   };
 
