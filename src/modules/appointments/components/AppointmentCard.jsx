@@ -7,6 +7,7 @@ import Typography from '../../../common/typography/Typography';
 import { AntDesign } from '@expo/vector-icons';
 import { withTheme } from '../../../common/theme/Theme';
 import { compose } from 'redux';
+import { AppointmentDefinition } from '../appointments.definitions';
 
 class AppointmentCard extends Component {
   render() {
@@ -21,7 +22,7 @@ class AppointmentCard extends Component {
           <Typography size="small" color="primary">
             {appointment.date}
           </Typography>
-          <Typography textStyles={{ fontWeight: 'bold' }}>{appointment.business}</Typography>
+          <Typography textStyles={{ fontWeight: 'bold' }}>{appointment.turn.business.name}</Typography>
         </View>
 
         <View>
@@ -29,11 +30,11 @@ class AppointmentCard extends Component {
           <Typography size="small">Your #</Typography>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Typography size="large" color="secondary">
-              {appointment.appointmentNumber}
+              {appointment.number}
             </Typography>
             <AntDesign name="right" size={24} color={colors.text} />
             <Typography size="large" color="primary">
-              {appointment.appointmentCountdown}
+              {appointment.number - appointment.turn.currentTurn}
             </Typography>
             <Typography size="small" textStyles={{ width: 60 }}>
               Numbers ahead
@@ -46,12 +47,7 @@ class AppointmentCard extends Component {
 }
 
 AppointmentCard.propTypes = {
-  appointment: PropTypes.shape({
-    appointmentNumber: PropTypes.string.isRequired,
-    business: PropTypes.string.isRequired,
-    appointmentCountdown: PropTypes.number,
-    date: PropTypes.date
-  })
+  appointment: PropTypes.instanceOf(AppointmentDefinition).isRequired
 };
 
 function mapStateToProps(state) {

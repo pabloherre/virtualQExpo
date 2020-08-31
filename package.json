@@ -84,7 +84,8 @@
       "!**/jest/**",
       "!**/node_modules/**",
       "!**/babel.config.js",
-      "!**/*.styles.js"
+      "!**/*.styles.js",
+      "!**/*.definitions.js"
     ],
     "watchPathIgnorePatterns": [
       "<rootDir>/jest-stare"

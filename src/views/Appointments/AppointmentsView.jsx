@@ -10,6 +10,7 @@ import { safeArea } from '../../styles/common.styles';
 import { Entypo } from '@expo/vector-icons';
 import RoundedIcon from '../../common/icons/RoundedIcon';
 import { colors } from '../../../theme';
+import { AppointmentDefinition } from '../../modules/appointments/appointments.definitions';
 
 export class AppointmentsView extends Component {
   constructor(props) {
@@ -47,7 +48,8 @@ export class AppointmentsView extends Component {
 AppointmentsView.propTypes = {
   colors: PropTypes.shape({
     primary: PropTypes.string
-  })
+  }),
+  appointments: PropTypes.arrayOf(PropTypes.instanceOf(AppointmentDefinition))
 };
 
 AppointmentsView.defaultProps = {

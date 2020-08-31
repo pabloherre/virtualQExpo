@@ -1,12 +1,21 @@
 export const appointment = {
-  id: 1,
-  date: 'Today',
-  business: 'Pharmacy',
-  appointmentNumber: '234234',
-  appointmentCountdown: 23,
-  latitude: -32.8913568,
-  longitude: -68.8567443,
-  address: 'Av. Cabildo 2035',
-  city: 'Belgrano, CABA',
-  email: 'somename@randomemail.com'
+  _id: 1,
+  date: new Date(),
+  number: 1,
+  status: 'ACTIVE',
+  turn: {
+    name: 'PAMI',
+    status: 'ACTIVE',
+    currentTurn: 1,
+    code: 'adDweD',
+    business: {
+      name: 'CabezaYHombro',
+      category: '5f4d126aeb085b0ef440f066',
+      address: 'San Martin 849',
+      latitude: -32.3232,
+      longitude: -68.6868,
+      city: 'Guaymallen',
+      state: 'Mendoza'
+    }
+  }
 };
