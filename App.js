@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { DefaultTheme, NavigationContainer, useTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import AsyncStorage from '@react-native-community/async-storage';
 import { Provider } from 'react-redux';
 
 import HomeScreen from './src/views/Home/HomeView';
@@ -17,13 +17,16 @@ import HeaderNotification from './src/common/header/HeaderNotification';
 import AppointmentNew from './src/views/AppointmentNew/AppointmentNew';
 import QRCodeView from './src/views/QRCode/QRCode';
 import { colors } from './theme';
+import * as Notifications from 'expo-notifications';
 
 import initFeathersClient from './src/setup/feathersClient';
 import FlashMessage from 'react-native-flash-message';
 import withSideMenu from './src/common/sideMenu/SideMenuHOC';
 import Menu from './src/common/sideMenu/SideMenu';
+import { NotificationService } from './src/common/notifications/Notification.service';
 
 initFeathersClient();
+NotificationService.initNotificationHandler();
 
 const Stack = createStackNavigator();
 const RootStack = createStackNavigator();
@@ -95,6 +98,37 @@ function StackScreen() {
 }
 
 export default function App() {
+  const notificationListener = useRef();
+  const responseListener = useRef();
+
+  useEffect(() => {
+    AsyncStorage.getItem('expoPushToken').then(token => {
+      console.log(token);
+      if (!token) {
+        NotificationService.registerForPushNotificationsAsync().then(token => {
+          AsyncStorage.setItem('expoPushToken', token);
+        });
+      }
+    });
+
+    // This listener is fired whenever a notification is received while the app is foregrounded
+    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+      console.log('notification');
+      console.log(notification);
+    });
+
+    // This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
+    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+      console.log('response');
+      console.log(response);
+    });
+
+    return () => {
+      Notifications.removeNotificationSubscription(notificationListener);
+      Notifications.removeNotificationSubscription(responseListener);
+    };
+  }, []);
+
   return (
     <Provider store={store}>
       <NavigationContainer theme={theme}>

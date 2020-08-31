@@ -8,6 +8,7 @@ import { colors } from '../../../theme';
 import { FontAwesome, SimpleLineIcons } from '@expo/vector-icons';
 import { SideMenuService } from './SideMenu.service';
 import Typography from '../typography/Typography';
+import { NotificationService } from '../notifications/Notification.service';
 
 class Menu extends React.Component {
   onPress = async () => {
@@ -39,6 +40,14 @@ class Menu extends React.Component {
           <Typography color="secondary" size="small">
             {this.props.user && this.props.user.email}
           </Typography>
+          <RoundedButton
+            label="Notify"
+            onPress={() => {
+              // setTimeout(() => {
+              NotificationService.sendPushNotification();
+              // }, 3000);
+            }}
+          />
         </View>
         <View style={{ flex: 1, marginVertical: 10, width: 200, alignSelf: 'center', justifyContent: 'flex-end' }}>
           <RoundedButton startIcon={<SimpleLineIcons name="logout" size={24} color="white" />} label="Logout" onPress={this.onPress} />
