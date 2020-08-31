@@ -22,7 +22,7 @@ class UserService {
     }
   }
 
-  static async setUser(user) {
+  static setUser(user) {
     store.dispatch(setUser(user));
   }
 }

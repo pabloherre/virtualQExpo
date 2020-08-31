@@ -15,10 +15,9 @@ export default class AuthService {
       store.dispatch(loginPending());
       const result = await authenticate.create(credentials);
       store.dispatch(login());
-      AsyncStorage.setItem('accessToken', result.accessToken);
+      await AsyncStorage.setItem('accessToken', result.accessToken);
       return result.users;
     } catch (e) {
-      console.log(e);
       store.dispatch(loginFail());
       showMessage({
         message: 'Login Failed',
@@ -36,5 +35,21 @@ export default class AuthService {
     } catch (error) {
       throw new Error('Cannot logout');
     }
+  };
+
+  static reAuthenticate = async () => {
+    const accessToken = await AsyncStorage.getItem('accessToken');
+    if (accessToken) {
+      try {
+        store.dispatch(loginPending());
+        const result = await authenticate.create({ strategy: 'jwt', accessToken });
+        store.dispatch(login());
+        await AsyncStorage.setItem('accessToken', result.accessToken);
+        return result.users;
+      } catch (e) {
+        store.dispatch(loginFail());
+      }
+    }
+    return null;
   };
 }

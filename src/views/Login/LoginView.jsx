@@ -23,6 +23,14 @@ export class LoginView extends Component {
     };
   }
 
+  async componentDidMount() {
+    const user = await AuthService.reAuthenticate();
+    if (user) {
+      UserService.setUser(user);
+      this.props.navigation.navigate('Appointments');
+    }
+  }
+
   handleChange = (value, field) => {
     this.setState({ [field]: value });
   };

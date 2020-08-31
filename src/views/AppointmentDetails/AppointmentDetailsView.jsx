@@ -24,14 +24,14 @@ class AppointmentDetailsView extends Component {
               <MapView
                 style={{ height: 200, padding: 20, margin: 5 }}
                 initialRegion={{
-                  latitude: appointment.latitude || 0,
-                  longitude: appointment.longitude || 0,
+                  latitude: appointment.turn.business.latitude || 0,
+                  longitude: appointment.turn.business.longitude || 0,
                   latitudeDelta: 0.0022,
                   longitudeDelta: 0.0022
                 }}
               >
                 <Marker
-                  coordinate={{ latitude: appointment.latitude, longitude: appointment.longitude }}
+                  coordinate={{ latitude: appointment.turn.business.latitude, longitude: appointment.turn.business.longitude }}
                   title={appointment.business}
                   description={appointment.business}
                 />
@@ -42,10 +42,10 @@ class AppointmentDetailsView extends Component {
               <View style={{ flex: 4 }}>
                 <Typography size="small">Como llegar</Typography>
                 <Typography size="small" color="secondary">
-                  {appointment.address}
+                  {appointment.turn.business.address}
                 </Typography>
                 <Typography size="small" color="secondary">
-                  {appointment.city}
+                  {appointment.turn.business.city}
                 </Typography>
               </View>
               <View style={{ flex: 1 }}>
@@ -59,7 +59,7 @@ class AppointmentDetailsView extends Component {
               <View style={{ flex: 4 }}>
                 <Typography size="small">Email</Typography>
                 <Typography size="small" color="secondary">
-                  {appointment.email}
+                  {appointment.turn.business.email}
                 </Typography>
               </View>
               <View style={{ flex: 1 }}>

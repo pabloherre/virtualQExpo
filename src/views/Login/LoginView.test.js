@@ -12,10 +12,11 @@ const mockProps = {
 };
 
 describe('<LoginView />', () => {
-  beforeEach(() => {
+  afterEach(() => {
     mockProps.navigation.navigate.mockClear();
     AuthService.login.mockClear();
     UserService.setUser.mockClear();
+    AuthService.reAuthenticate.mockClear();
   });
 
   it('should render correctly', async () => {
@@ -64,5 +65,24 @@ describe('<LoginView />', () => {
     expect(AuthService.login).toThrow();
     expect(UserService.setUser).toHaveBeenCalledTimes(0);
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledTimes(0);
+  });
+
+  it('should do nothing if reauthenticate fails', async () => {
+    AuthService.reAuthenticate.mockReturnValue(null);
+
+    const wrapper = await shallow(<LoginView {...mockProps} />);
+
+    expect(UserService.setUser).toHaveBeenCalledTimes(0);
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledTimes(0);
+  });
+
+  it('should reauthenticate if token is present', async () => {
+    const user = { name: 'pepe' };
+    AuthService.reAuthenticate.mockReturnValue(user);
+
+    const wrapper = await shallow(<LoginView {...mockProps} />);
+
+    expect(UserService.setUser).toHaveBeenCalledWith(user);
+    expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledWith('Appointments');
   });
 });

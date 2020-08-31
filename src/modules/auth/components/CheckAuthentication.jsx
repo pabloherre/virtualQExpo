@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
 import UserService from '../../../services/user/User.service';
+import AuthService from '../Auth.service';
 
 export default function checkAuthentication(WrappedComponent) {
   class IsAuthenticated extends Component {
@@ -11,11 +11,9 @@ export default function checkAuthentication(WrappedComponent) {
     }
     async componentDidMount() {
       if (!this.props.isLoggedIn) {
-        let data = await AsyncStorage.getItem('user');
-
-        if (data) {
-          AuthService.login();
-          UserService.setUser(data);
+        const user = await AuthService.reAuthenticate();
+        if (user) {
+          UserService.setUser(user);
         } else {
           this.props.navigation.navigate('Login');
         }

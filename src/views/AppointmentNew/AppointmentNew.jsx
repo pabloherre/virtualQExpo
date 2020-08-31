@@ -30,7 +30,7 @@ export class AppointmentNew extends Component {
   }
 
   handleCode = () => {
-    this.props.navigation.navigate('AppointmentDetails', { appointment: this.props.appointments[0] }); // TODO: reserve appointment for this business
+    // this.props.navigation.navigate('AppointmentDetails', { appointment:  }); // TODO: reserve appointment for this business
   };
 
   render() {
@@ -94,14 +94,14 @@ export class AppointmentNew extends Component {
                 longitudeDelta: 0.0421
               }}
             >
-              {this.props.appointments.map(appointment => {
+              {this.props.business.map(business => {
                 return (
                   <Marker
-                    key={appointment.id}
+                    key={business.id}
                     onPress={this.handleCode}
-                    coordinate={{ latitude: appointment.latitude, longitude: appointment.longitude }}
-                    title={appointment.business}
-                    description={appointment.business}
+                    coordinate={{ latitude: business.latitude, longitude: business.longitude }}
+                    title={business.business}
+                    description={business.business}
                   />
                 );
               })}
@@ -125,7 +125,8 @@ AppointmentNew.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    appointments: state.appointment.appointments
+    // appointments: state.appointment.data
+    business: [] // TODO: get from service.-
   };
 }
 

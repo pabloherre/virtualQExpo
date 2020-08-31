@@ -8,7 +8,7 @@ jest.unmock('./Auth.service');
 describe('AuthService', () => {
   const dispatchSpy = jest.spyOn(store, 'dispatch');
   const credentials = { email: 'test@test.com', password: '123456' };
-  const result = { accessToken: '123', user: { name: 'test' } };
+  const result = { accessToken: '123', users: { name: 'test' } };
 
   beforeEach(() => {
     authenticate.create.mockClear();
@@ -51,7 +51,25 @@ describe('AuthService', () => {
     expect(authenticate.create).toHaveBeenCalledTimes(0);
   });
 
-  it.todo('should reauthenticate if the token is present');
+  it('should reauthenticate if the token is present', async () => {
+    authenticate.create.mockReturnValueOnce(result);
+
+    const user = await AuthService.reAuthenticate();
+
+    expect(dispatchSpy).toHaveBeenCalledWith({ type: 'LOGIN' });
+    expect(AsyncStorage.setItem).toHaveBeenCalledWith('accessToken', result.accessToken);
+    expect(user).toBe(result.users);
+  });
+
+  it('should fail on reauthenticate if token not present', async () => {
+    authenticate.create.mockImplementation(() => {
+      throw new Error('Cannot reauthenticate');
+    });
+
+    const user = await AuthService.reAuthenticate();
+    expect(user).toBeNull();
+    expect(dispatchSpy).toHaveBeenCalledWith({ type: 'LOGIN_FAIL' });
+  });
 
   it('should remove all credentials', async () => {
     await AuthService.logout();
