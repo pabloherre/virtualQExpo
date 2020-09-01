@@ -1,5 +1,5 @@
 import { appointmentApi } from '../../setup/feathersClient';
-import { findAppointments, findAppointmentsFailed, findAppointmentsSuccess } from './Appointment.actions';
+import { addAppointment, findAppointments, findAppointmentsFailed, findAppointmentsSuccess } from './Appointment.actions';
 import { showMessage } from 'react-native-flash-message';
 import store from '../../setup/store';
 
@@ -29,10 +29,37 @@ export default class AppointmentService {
     }
   }
 
-  static createAppointment(turn) {
-    return {
-      turn,
-      date: Date.now()
-    };
+  static async createAppointment(appmnt) {
+    store.dispatch(findAppointments());
+    try {
+      const appointment = await appointmentApi.create(appmnt);
+      store.dispatch(addAppointment());
+      return appointment;
+    } catch (e) {
+      store.dispatch(findAppointmentsFailed());
+      showMessage({
+        message: 'Something went wrong',
+        description: e.message,
+        type: 'danger',
+        icon: 'danger'
+      });
+    }
+  }
+
+  static async deleteAppointment(id) {
+    store.dispatch(findAppointments());
+    try {
+      const appointment = await appointmentApi.remove(id);
+      store.dispatch(addAppointment());
+      return appointment;
+    } catch (e) {
+      store.dispatch(findAppointmentsFailed());
+      showMessage({
+        message: 'Something went wrong',
+        description: e.message,
+        type: 'danger',
+        icon: 'danger'
+      });
+    }
   }
 }

@@ -1,4 +1,9 @@
-import { APPOINTMENT_FIND_FAILED, APPOINTMENT_FIND_PENDING, APPOINTMENT_FIND_SUCCESS } from './Appointment.actions';
+import {
+  APPOINTMENT_ADD_SUCCESS,
+  APPOINTMENT_FIND_FAILED,
+  APPOINTMENT_FIND_PENDING,
+  APPOINTMENT_FIND_SUCCESS
+} from './Appointment.actions';
 
 const initialState = {
   data: null,
@@ -12,6 +17,8 @@ const appointmentReducer = (state = initialState, action) => {
       return Object.assign({}, state, { loading: true, data: null });
     case APPOINTMENT_FIND_SUCCESS:
       return Object.assign({}, state, { loading: false, data: action.payload });
+    case APPOINTMENT_ADD_SUCCESS:
+      return Object.assign({}, state, { loading: false });
     case APPOINTMENT_FIND_FAILED:
       return Object.assign({}, state, { loading: false, data: null, error: action.payload });
     default:

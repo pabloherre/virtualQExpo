@@ -1,7 +1,7 @@
 import store from '../../setup/store';
 import { login, loginFail, loginPending, logout } from './Auth.actions';
 import AsyncStorage from '@react-native-community/async-storage';
-import { authenticate } from '../../setup/feathersClient';
+import { authenticate, reAuthenticate } from '../../setup/feathersClient';
 import { showMessage } from 'react-native-flash-message';
 
 export default class AuthService {
@@ -13,7 +13,7 @@ export default class AuthService {
 
     try {
       store.dispatch(loginPending());
-      const result = await authenticate.create(credentials);
+      const result = await authenticate(credentials);
       store.dispatch(login());
       await AsyncStorage.setItem('accessToken', result.accessToken);
       return result.users;
@@ -39,14 +39,16 @@ export default class AuthService {
 
   static reAuthenticate = async () => {
     const accessToken = await AsyncStorage.getItem('accessToken');
+    console.log(accessToken);
     if (accessToken) {
       try {
         store.dispatch(loginPending());
-        const result = await authenticate.create({ strategy: 'jwt', accessToken });
+        const result = await reAuthenticate();
         store.dispatch(login());
         await AsyncStorage.setItem('accessToken', result.accessToken);
         return result.users;
       } catch (e) {
+        console.log(e);
         store.dispatch(loginFail());
       }
     }

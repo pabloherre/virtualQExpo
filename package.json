@@ -13,6 +13,7 @@
     "test:update": "node ./node_modules/jest/bin/jest --updateSnapshot"
   },
   "dependencies": {
+    "@feathersjs/authentication-client": "^4.5.8",
     "@feathersjs/feathers": "^4.5.8",
     "@feathersjs/rest-client": "^4.5.8",
     "@feathersjs/socketio-client": "^4.5.8",
