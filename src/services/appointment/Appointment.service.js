@@ -28,4 +28,11 @@ export default class AppointmentService {
       });
     }
   }
+
+  static createAppointment(turn) {
+    return {
+      turn,
+      date: Date.now()
+    };
+  }
 }

@@ -4,12 +4,14 @@ import auth from '../modules/auth/Auth.reducer';
 import userReducer from '../services/user/User.reducer';
 import sideMenuReducer from '../common/sideMenu/SideMenu.reducer';
 import appointmentReducer from '../services/appointment/Appointment.reducer';
+import turnReducer from '../services/turn/Turn.reducer';
 
 const reducers = combineReducers({
   auth,
   appointment: appointmentReducer,
   user: userReducer,
-  sideMenu: sideMenuReducer
+  sideMenu: sideMenuReducer,
+  turn: turnReducer
 });
 
 const store = createStore(

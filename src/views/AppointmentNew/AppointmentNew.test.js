@@ -70,8 +70,5 @@ describe('<AppointmentNew>', () => {
     expect(wrapper.state('searchValue')).toBe('code');
   });
 
-  it.todo('should redirect you to the appointment after processing the appointment', async () => {
-    // wrapper.find('#searchCode').simulate('press');
-    // expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalled();
-  });
+  it.todo('should redirect you to the appointment after processing the appointment');
 });

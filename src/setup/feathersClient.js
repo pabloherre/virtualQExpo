@@ -9,7 +9,7 @@ export default function initFeathersClient() {
   const feathersClient = feathers().configure(client.fetch(window.fetch.bind(window)));
   userApi = feathersClient.service('users');
   appointmentApi = feathersClient.service('appointments');
-  businessApi = feathersClient.service('businness');
+  businessApi = feathersClient.service('business');
   categoryApi = feathersClient.service('categories');
   turnApi = feathersClient.service('turns');
   authenticate = feathersClient.service('authentication');

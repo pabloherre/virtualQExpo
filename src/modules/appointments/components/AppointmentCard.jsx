@@ -25,22 +25,24 @@ export class AppointmentCard extends Component {
           </Typography>
         </View>
 
-        <View>
-          <Text>&nbsp;</Text>
-          <Typography size="small">Your #</Typography>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Typography size="large" color="secondary" {...setTestInfo('testTextAppointmentNumber')}>
-              {appointment.number}
-            </Typography>
-            <AntDesign name="right" size={24} color={colors.text} />
-            <Typography size="large" color="primary" {...setTestInfo('testTextAppointmentNumberAhead')}>
-              {appointment.number - appointment.turn.currentTurn}
-            </Typography>
-            <Typography size="small" textStyles={{ width: 60 }}>
-              Numbers ahead
-            </Typography>
+        {appointment._id && (
+          <View>
+            <Text>&nbsp;</Text>
+            <Typography size="small">Your #</Typography>
+            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+              <Typography size="large" color="secondary" {...setTestInfo('testTextAppointmentNumber')}>
+                {appointment.number}
+              </Typography>
+              <AntDesign name="right" size={24} color={colors.text} />
+              <Typography size="large" color="primary" {...setTestInfo('testTextAppointmentNumberAhead')}>
+                {appointment.number - appointment.turn.currentTurn}
+              </Typography>
+              <Typography size="small" textStyles={{ width: 60 }}>
+                Numbers ahead
+              </Typography>
+            </View>
           </View>
-        </View>
+        )}
       </TouchableOpacity>
     );
   }

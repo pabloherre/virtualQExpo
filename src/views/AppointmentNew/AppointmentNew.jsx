@@ -10,14 +10,20 @@ import { AntDesign } from '@expo/vector-icons';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { colors } from '../../../theme';
+import debounce from '@react-navigation/stack/src/utils/debounce';
+import TurnService from '../../services/turn/Turn.service';
+import { showMessage } from 'react-native-flash-message';
+import AppointmentService from '../../services/appointment/Appointment.service';
 
 export class AppointmentNew extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentLocation: null,
+      latitude: 0,
+      longitude: 0,
       searchValue: '',
-      hasPermissions: false
+      hasPermissions: false,
+      business: []
     };
   }
 
@@ -25,16 +31,53 @@ export class AppointmentNew extends Component {
     let { status } = await Location.requestPermissionsAsync();
     if (status === 'granted') {
       let location = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
-      this.setState({ currentLocation: location });
+      this.setState({ latitude: location.coords.latitude, longitude: location.coords.longitude }, () =>
+        this.findTurnsByRegion({ latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.0922 })
+      );
     }
   }
 
-  handleCode = () => {
-    // this.props.navigation.navigate('AppointmentDetails', { appointment:  }); // TODO: reserve appointment for this business
+  getBusinessByTurns = () => {
+    return this.props.turns.reduce((acc, turn) => {
+      return acc.concat(turn.business);
+    }, []);
   };
 
+  handleCode = async code => {
+    const turn = await TurnService.findBusinessByCode(code);
+    if (!turn) {
+      showMessage({
+        message: "Can't find business turn",
+        description: 'Not found',
+        type: 'danger',
+        icon: 'danger'
+      });
+    } else {
+      const appointment = AppointmentService.createAppointment(turn);
+      this.props.navigation.navigate('AppointmentDetails', { appointment });
+    }
+  };
+
+  findTurnsByRegion = async region => {
+    const { latitude, longitude } = this.state;
+
+    TurnService.findNearTurns({
+      latitude,
+      longitude,
+      delta: region.latitudeDelta
+    });
+  };
+
+  handleChangeRegion = newRegion => {
+    this.debouncedHandleChangeRegion(newRegion);
+  };
+
+  debouncedHandleChangeRegion = debounce(newRegion => {
+    this.setState({ latitude: newRegion.latitude, longitude: newRegion.longitude }, () => this.findTurnsByRegion(newRegion));
+  }, 1000);
+
   render() {
-    const { hasPermissions, searchValue, currentLocation } = this.state;
+    const { hasPermissions, searchValue, latitude, longitude } = this.state;
     return (
       <View style={safeArea}>
         <Typography>Type the store code or scan the QR code</Typography>
@@ -83,25 +126,31 @@ export class AppointmentNew extends Component {
         />
 
         <Typography>You can also find stores near you</Typography>
-        {currentLocation && (
+        {Boolean(latitude) && Boolean(longitude) && (
           <View style={{ borderRadius: 30, overflow: 'hidden', flex: 1 }}>
             <MapView
               style={{ padding: 20, flex: 1 }}
               initialRegion={{
-                latitude: currentLocation.coords.latitude,
-                longitude: currentLocation.coords.longitude,
+                latitude,
+                longitude,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421
               }}
+              onRegionChange={reg => this.handleChangeRegion(reg)}
             >
-              {this.props.business.map(business => {
+              {this.getBusinessByTurns().map(business => {
                 return (
                   <Marker
-                    key={business.id}
-                    onPress={this.handleCode}
-                    coordinate={{ latitude: business.latitude, longitude: business.longitude }}
-                    title={business.business}
-                    description={business.business}
+                    key={business._id}
+                    onCalloutPress={() => {
+                      this.handleCode(business.code);
+                    }}
+                    coordinate={{
+                      latitude: business.location.coordinates[1],
+                      longitude: business.location.coordinates[0]
+                    }}
+                    title={business.name}
+                    description={business.address}
                   />
                 );
               })}
@@ -125,8 +174,7 @@ AppointmentNew.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    // appointments: state.appointment.data
-    business: [] // TODO: get from service.-
+    turns: state.turn.data
   };
 }
 

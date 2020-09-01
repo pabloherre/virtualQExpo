@@ -4,8 +4,10 @@ const BusinessDefinition = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string,
   address: PropTypes.string.isRequired,
-  latitude: PropTypes.number,
-  longitude: PropTypes.number,
+  location: PropTypes.shape({
+    type: PropTypes.oneOf(['Point']),
+    coordinates: PropTypes.arrayOf(PropTypes.number)
+  }),
   city: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired
 };

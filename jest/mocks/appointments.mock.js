@@ -13,8 +13,10 @@ export const appointments = [
         name: 'Business Name 1',
         category: '5f4d126aeb085b0ef440f066',
         address: 'San Martin 849',
-        latitude: -32.3232,
-        longitude: -68.6868,
+        location: {
+          type: 'Point',
+          coordinates: [-68.6868, -32.3232]
+        },
         city: 'Guaymallen',
         state: 'Mendoza'
       }
@@ -34,8 +36,10 @@ export const appointments = [
         name: 'Business Name 2',
         category: '5f4d126aeb085b0ef440f066',
         address: 'San Martin 849',
-        latitude: -32.3232,
-        longitude: -68.6868,
+        location: {
+          type: 'Point',
+          coordinates: [-68.6868, -32.3232]
+        },
         city: 'Guaymallen',
         state: 'Mendoza'
       }
@@ -55,8 +59,10 @@ export const appointments = [
         name: 'Business Name 3',
         category: '5f4d126aeb085b0ef440f066',
         address: 'San Martin 849',
-        latitude: -32.3232,
-        longitude: -68.6868,
+        location: {
+          type: 'Point',
+          coordinates: [-68.6868, -32.3232]
+        },
         city: 'Guaymallen',
         state: 'Mendoza'
       }
@@ -76,8 +82,10 @@ export const appointments = [
         name: 'Business Name 4',
         category: '5f4d126aeb085b0ef440f066',
         address: 'San Martin 849',
-        latitude: -32.3232,
-        longitude: -68.6868,
+        location: {
+          type: 'Point',
+          coordinates: [-68.6868, -32.3232]
+        },
         city: 'Guaymallen',
         state: 'Mendoza'
       }
@@ -97,8 +105,10 @@ export const appointments = [
         name: 'Business Name 5',
         category: '5f4d126aeb085b0ef440f066',
         address: 'San Martin 849',
-        latitude: -32.3232,
-        longitude: -68.6868,
+        location: {
+          type: 'Point',
+          coordinates: [-68.6868, -32.3232]
+        },
         city: 'Guaymallen',
         state: 'Mendoza'
       }

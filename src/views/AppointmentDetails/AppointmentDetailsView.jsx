@@ -15,28 +15,32 @@ class AppointmentDetailsView extends Component {
   render() {
     const { appointment } = this.props.route.params;
     return (
-      <View style={safeArea}>
-        {appointment && (
+      appointment && (
+        <View style={safeArea}>
           <ScrollView id="appointmentDetailContainer">
             <AppointmentCard appointment={appointment} />
-
-            <View style={{ borderRadius: 30, overflow: 'hidden', flex: 1 }}>
-              <MapView
-                style={{ height: 200, padding: 20, margin: 5 }}
-                initialRegion={{
-                  latitude: appointment.turn.business.latitude || 0,
-                  longitude: appointment.turn.business.longitude || 0,
-                  latitudeDelta: 0.0022,
-                  longitudeDelta: 0.0022
-                }}
-              >
-                <Marker
-                  coordinate={{ latitude: appointment.turn.business.latitude, longitude: appointment.turn.business.longitude }}
-                  title={appointment.business}
-                  description={appointment.business}
-                />
-              </MapView>
-            </View>
+            {appointment.turn.business.location && (
+              <View style={{ borderRadius: 30, overflow: 'hidden', flex: 1 }}>
+                <MapView
+                  style={{ height: 200, padding: 20, margin: 5 }}
+                  initialRegion={{
+                    latitude: appointment.turn.business.location.coordinates[1] || 0,
+                    longitude: appointment.turn.business.location.coordinates[0] || 0,
+                    latitudeDelta: 0.0022,
+                    longitudeDelta: 0.0022
+                  }}
+                >
+                  <Marker
+                    coordinate={{
+                      latitude: appointment.turn.business.location.coordinates[1],
+                      longitude: appointment.turn.business.location.coordinates[0]
+                    }}
+                    title={appointment.turn.business.name}
+                    description={appointment.turn.business.address}
+                  />
+                </MapView>
+              </View>
+            )}
 
             <View style={styles.infoCard}>
               <View style={{ flex: 4 }}>
@@ -69,27 +73,40 @@ class AppointmentDetailsView extends Component {
               </View>
             </View>
           </ScrollView>
-        )}
-
-        <View
-          style={{
-            marginTop: 20,
-            flexDirection: 'row',
-            justifyContent: 'space-between'
-          }}
-        >
-          <RoundedButton
-            label={'CAMBIAR TURNO'}
-            startIcon={<MaterialCommunityIcons name="alarm" size={20} color="white" />}
-            textStyle={{
-              fontSize: 14
+          <View
+            style={{
+              marginTop: 20,
+              flexDirection: 'row',
+              justifyContent: 'space-between'
             }}
-          />
-          <RoundedIcon bkColor="white" shadow={true} size={60}>
-            <FontAwesome5 name="trash-alt" size={20} color="black" />
-          </RoundedIcon>
+          >
+            {appointment._id ? (
+              <>
+                <RoundedButton
+                  label={'CAMBIAR TURNO'}
+                  startIcon={<MaterialCommunityIcons name="alarm" size={20} color="white" />}
+                  textStyle={{
+                    fontSize: 14
+                  }}
+                />
+                <RoundedIcon bkColor="white" shadow={true} size={60}>
+                  <FontAwesome5 name="trash-alt" size={20} color="black" />
+                </RoundedIcon>
+              </>
+            ) : (
+              <>
+                <RoundedButton
+                  label={'CONFIRMAR'}
+                  startIcon={<MaterialCommunityIcons name="alarm" size={20} color="white" />}
+                  textStyle={{
+                    fontSize: 14
+                  }}
+                />
+              </>
+            )}
+          </View>
         </View>
-      </View>
+      )
     );
   }
 }
