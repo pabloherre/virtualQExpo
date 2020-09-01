@@ -97,7 +97,7 @@ export class AppointmentNew extends Component {
             }}
           >
             <TextInput style={{ flex: 8 }} value={searchValue} onChangeText={text => this.setState({ searchValue: text })} label="Code" />
-            <TouchableOpacity id="searchCode" style={{ flex: 1 }} onPress={this.handleCode}>
+            <TouchableOpacity id="searchCode" style={{ flex: 1 }} onPress={() => this.handleCode(searchValue)}>
               <AntDesign name="right" size={20} color={colors.primary} />
             </TouchableOpacity>
           </View>
