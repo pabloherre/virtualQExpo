@@ -54,8 +54,9 @@ export class AppointmentNew extends Component {
     } else {
       const appointment = {
         turn,
-        date: Date.now().toString()
+        date: Date.now()
       };
+
       this.props.navigation.navigate('AppointmentDetails', { appointment });
     }
   };

@@ -39,7 +39,6 @@ export default class AuthService {
 
   static reAuthenticate = async () => {
     const accessToken = await AsyncStorage.getItem('accessToken');
-    console.log(accessToken);
     if (accessToken) {
       try {
         store.dispatch(loginPending());
