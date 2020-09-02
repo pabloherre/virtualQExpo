@@ -2,13 +2,16 @@ import { appointmentApi } from '../../setup/feathersClient';
 import { addAppointment, findAppointments, findAppointmentsFailed, findAppointmentsSuccess } from './Appointment.actions';
 import { showMessage } from 'react-native-flash-message';
 import store from '../../setup/store';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class AppointmentService {
   static async findAppointments() {
     try {
       store.dispatch(findAppointments());
+      const loggedUser = await AsyncStorage.getItem('user');
       const result = await appointmentApi.find({
         query: {
+          user: JSON.parse(loggedUser)._id,
           $populate: {
             path: 'turn',
             populate: {
@@ -32,6 +35,8 @@ export default class AppointmentService {
   static async createAppointment(appmnt) {
     store.dispatch(findAppointments());
     try {
+      const loggedUser = await AsyncStorage.getItem('user');
+      appmnt.user = JSON.parse(loggedUser)._id;
       const appointment = await appointmentApi.create(appmnt);
       store.dispatch(addAppointment());
       return appointment;

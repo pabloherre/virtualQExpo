@@ -16,13 +16,11 @@ import { colors } from '../../../theme';
 class AppointmentDetailsView extends Component {
   handleSaveAppointment = async () => {
     const { appointment } = this.props.route.params;
-    const saved = await AppointmentService.createAppointment({
+    await AppointmentService.createAppointment({
       turn: appointment.turn._id,
       date: new Date()
     });
-    if (saved) {
-      this.props.navigation.navigate('Appointments');
-    }
+    this.props.navigation.navigate('Appointments');
   };
 
   handleDeleteAppointment = async () => {
