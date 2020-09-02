@@ -7,6 +7,7 @@ class UserService {
   static async registerUser(user) {
     store.dispatch(registerUser());
     try {
+      console.log(user);
       let result = await userApi.create(user);
       store.dispatch(registerUserSuccess(result));
       return result;
