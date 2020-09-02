@@ -33,6 +33,7 @@ const theme = {
   colors
 };
 
+//TODO: create header title component to add accessibilityLabel prop
 function StackScreen() {
   const theme = useTheme();
   return (
