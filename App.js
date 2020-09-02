@@ -6,7 +6,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { Provider } from 'react-redux';
 
-import HomeScreen from './src/views/Home/HomeView';
 import RegisterView from './src/views/Register/RegisterView';
 import AppointmentsView from './src/views/Appointments/AppointmentsView';
 import store from './src/setup/store';
@@ -76,7 +75,6 @@ function StackScreen() {
           headerTitleAlign: 'center'
         }}
       />
-      <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen
         name="Register"
         component={RegisterView}

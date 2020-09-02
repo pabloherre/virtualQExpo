@@ -16,6 +16,7 @@ export default class AuthService {
       const result = await authenticate(credentials);
       store.dispatch(login());
       await AsyncStorage.setItem('accessToken', result.accessToken);
+      await AsyncStorage.setItem('user', JSON.stringify(result.users));
       return result.users;
     } catch (e) {
       store.dispatch(loginFail());
@@ -45,9 +46,9 @@ export default class AuthService {
         const result = await reAuthenticate();
         store.dispatch(login());
         await AsyncStorage.setItem('accessToken', result.accessToken);
+        await AsyncStorage.setItem('user', JSON.stringify(result.users));
         return result.users;
       } catch (e) {
-        console.log(e);
         store.dispatch(loginFail());
       }
     }

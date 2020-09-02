@@ -1,5 +1,5 @@
 import authReducer from './Auth.reducer';
-import { LOGOUT, SET_USER } from './Auth.actions';
+import { LOGOUT } from './Auth.actions';
 
 describe('Auth Reducer', () => {
   it('should should return initial state', async () => {
