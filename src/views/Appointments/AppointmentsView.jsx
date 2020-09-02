@@ -12,6 +12,7 @@ import RoundedIcon from '../../common/icons/RoundedIcon';
 import { colors } from '../../../theme';
 import { AppointmentDefinition } from '../../modules/appointments/appointments.definitions';
 import AppointmentService from '../../services/appointment/Appointment.service';
+import { setTestInfo } from '../../utils/test.utils';
 
 export class AppointmentsView extends Component {
   constructor(props) {
@@ -36,14 +37,24 @@ export class AppointmentsView extends Component {
         ) : (
           <FlatList
             data={appointments}
-            renderItem={({ item }) => <AppointmentCard appointment={item} onPressCard={appointment => this.handleOnPressCard(appointment)} />}
+            {...setTestInfo('testListAppointmentsList')}
+            renderItem={({ item }) => (
+              <AppointmentCard
+                appointment={item}
+                onPressCard={appointment => this.handleOnPressCard(appointment)}
+                {...setTestInfo('testTouchableAppointmentCard')}
+              />
+            )}
             keyExtractor={item => item._id}
           />
         )}
         <View style={styles.buttonContainer}>
           <View style={styles.addButton}>
             <RoundedIcon size={64} bkColor={colors.primary} shadow={true}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('AppointmentNew')}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('AppointmentNew')}
+                {...setTestInfo('testTouchableNewAppointmentButton')}
+              >
                 <Entypo name="plus" size={36} color="white" />
               </TouchableOpacity>
             </RoundedIcon>

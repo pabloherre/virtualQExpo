@@ -7,6 +7,7 @@ import { withTheme } from '../theme/Theme';
 import { compose } from 'redux';
 import { colors } from '../../../theme';
 import { SideMenuService } from '../sideMenu/SideMenu.service';
+import { setTestInfo } from '../../utils/test.utils';
 
 export class HeaderProfile extends Component {
   onPress = async () => {
@@ -19,7 +20,7 @@ export class HeaderProfile extends Component {
 
   render() {
     const { colors } = this.props;
-    return <EvilIcons name="user" size={36} color={colors.text} onPress={this.onPress} />;
+    return <EvilIcons name="user" size={36} color={colors.text} onPress={this.onPress} {...setTestInfo('testTouchableIconSideMenuToggle')} />;
   }
 }
 

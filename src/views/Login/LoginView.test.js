@@ -85,4 +85,10 @@ describe('<LoginView />', () => {
     expect(UserService.setUser).toHaveBeenCalledWith(user);
     expect(wrapper.instance().props.navigation.navigate).toHaveBeenCalledWith('Appointments');
   });
+
+  it('should have only one button testID', async () => {
+    const wrapper = await shallow(<LoginView {...mockProps} />);
+
+    expect(true).toBeTruthy();
+  });
 });

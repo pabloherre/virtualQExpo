@@ -10,8 +10,6 @@ class RoundedButton extends Component {
 
   render() {
     const { label, onPress, buttonStyle, textStyle, startIcon, endIcon, isLoading, ...rest } = this.props;
-    delete this.props.testID;
-    delete this.props.accesibiltyLabel;
 
     return (
       <TouchableOpacity style={{ ...styles.button, ...buttonStyle }} onPress={onPress} {...rest}>

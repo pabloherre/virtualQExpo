@@ -10,6 +10,7 @@ import { safeArea } from '../../styles/common.styles';
 import UserService from '../../services/user/User.service';
 import { compose } from 'redux';
 import withBackground from '../../common/background/Background';
+import { setTestInfo } from '../../utils/test.utils';
 
 export class RegisterView extends Component {
   constructor(props) {
@@ -41,12 +42,38 @@ export class RegisterView extends Component {
         <View style={{ marginTop: 80 }}>
           <Image source={logo} style={{ alignSelf: 'center', marginTop: 10, marginBottom: 40, width: 350, resizeMode: 'contain' }} />
           <View style={{ marginBottom: 20 }}>
-            <TextInput value={firstName} onChangeText={text => this.handleChange(text, 'firstName')} label="Nombre" />
-            <TextInput value={lastName} onChangeText={text => this.handleChange(text, 'lastName')} label="Apellido" />
-            <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
-            <TextInput value={password} secureTextEntry onChangeText={text => this.handleChange(text, 'password')} label="Password" />
+            <TextInput
+              value={firstName}
+              onChangeText={text => this.handleChange(text, 'firstName')}
+              label="Nombre"
+              {...setTestInfo('testInputRegisterName')}
+            />
+            <TextInput
+              value={lastName}
+              onChangeText={text => this.handleChange(text, 'lastName')}
+              label="Apellido"
+              {...setTestInfo('testInputRegisterLastName')}
+            />
+            <TextInput
+              value={email}
+              onChangeText={text => this.handleChange(text, 'email')}
+              label="Email"
+              {...setTestInfo('testInputRegisterEmail')}
+            />
+            <TextInput
+              value={password}
+              secureTextEntry
+              onChangeText={text => this.handleChange(text, 'password')}
+              label="Password"
+              {...setTestInfo('testInputRegisterPassword')}
+            />
           </View>
-          <RoundedButton label="REGISTRARME" onPress={this.handleRegister} isLoading={this.props.loading} />
+          <RoundedButton
+            label="REGISTRARME"
+            onPress={this.handleRegister}
+            isLoading={this.props.loading}
+            {...setTestInfo('testTouchableRegisterButton')}
+          />
         </View>
       </View>
     );

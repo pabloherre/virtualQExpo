@@ -8,6 +8,7 @@ import { colors } from '../../../theme';
 import { FontAwesome, SimpleLineIcons } from '@expo/vector-icons';
 import { SideMenuService } from './SideMenu.service';
 import Typography from '../typography/Typography';
+import { setTestInfo } from '../../utils/test.utils';
 
 class Menu extends React.Component {
   onPress = async () => {
@@ -41,7 +42,12 @@ class Menu extends React.Component {
           </Typography>
         </View>
         <View style={{ flex: 1, marginVertical: 10, width: 200, alignSelf: 'center', justifyContent: 'flex-end' }}>
-          <RoundedButton startIcon={<SimpleLineIcons name="logout" size={24} color="white" />} label="Logout" onPress={this.onPress} />
+          <RoundedButton
+            startIcon={<SimpleLineIcons name="logout" size={24} color="white" />}
+            label="Logout"
+            onPress={this.onPress}
+            {...setTestInfo('testTouchableLogut')}
+          />
         </View>
       </View>
     );

@@ -12,8 +12,10 @@ class TextInput extends Component {
     const { label, ...rest } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.label}>{label}</Text>
-        <NativeTextInput style={styles.input} {...rest} />
+        <Text style={styles.label} {...setTestInfo('testTextInputLabel')}>
+          {label}
+        </Text>
+        <NativeTextInput style={styles.input} {...rest} {...setTestInfo('testInputInput')} />
       </View>
     );
   }

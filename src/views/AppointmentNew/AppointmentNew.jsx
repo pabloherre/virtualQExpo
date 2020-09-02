@@ -13,6 +13,7 @@ import { colors } from '../../../theme';
 import debounce from '@react-navigation/stack/src/utils/debounce';
 import TurnService from '../../services/turn/Turn.service';
 import { showMessage } from 'react-native-flash-message';
+import { setTestInfo } from '../../utils/test.utils';
 
 export class AppointmentNew extends Component {
   constructor(props) {
@@ -99,8 +100,19 @@ export class AppointmentNew extends Component {
               paddingHorizontal: 10
             }}
           >
-            <TextInput style={{ flex: 8 }} value={searchValue} onChangeText={text => this.setState({ searchValue: text })} label="Code" />
-            <TouchableOpacity id="searchCode" style={{ flex: 1 }} onPress={() => this.handleCode(searchValue)}>
+            <TextInput
+              style={{ flex: 8 }}
+              value={searchValue}
+              onChangeText={text => this.setState({ searchValue: text })}
+              label="Code"
+              {...setTestInfo('testInputCode')}
+            />
+            <TouchableOpacity
+              id="searchCode"
+              style={{ flex: 1 }}
+              onPress={() => this.handleCode(searchValue)}
+              {...setTestInfo('testTouchableSearchCode')}
+            >
               <AntDesign name="right" size={20} color={colors.primary} />
             </TouchableOpacity>
           </View>
@@ -108,6 +120,7 @@ export class AppointmentNew extends Component {
           <RoundedButton
             buttonStyle={{ flex: 1 }}
             label={'SCAN'}
+            {...setTestInfo('testTouchableScan')}
             onPress={async () => {
               if (!hasPermissions) {
                 const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -137,6 +150,7 @@ export class AppointmentNew extends Component {
           {Boolean(latitude) && Boolean(longitude) && (
             <MapView
               style={{ padding: 20, flex: 1 }}
+              {...setTestInfo('testMapBusinessMap')}
               initialRegion={{
                 latitude,
                 longitude,
@@ -149,6 +163,7 @@ export class AppointmentNew extends Component {
                 return (
                   <Marker
                     key={business._id}
+                    {...setTestInfo('testMapBusinessMarker')}
                     onCalloutPress={() => {
                       this.handleCode(business.code);
                     }}

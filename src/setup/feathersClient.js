@@ -9,7 +9,7 @@ let userApi, appointmentApi, businessApi, categoryApi, turnApi, authenticate, re
 export default function initFeathersClient() {
   // const client = rest('https://virtual-queue-server.herokuapp.com');
 
-  const client = rest('http://192.168.100.7:3030'); //TODO: use ip instead localhost.-
+  const client = rest('http://192.168.0.3:3030'); //TODO: use ip instead localhost.-
   const feathersClient = feathers()
     .configure(client.fetch(window.fetch.bind(window)))
     .configure(
