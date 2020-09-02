@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 import AppointmentCard from '../../modules/appointments/components/AppointmentCard';
 import { safeArea } from '../../styles/common.styles';
 import MapView, { Marker } from 'react-native-maps';
 import Typography from '../../common/typography/Typography';
 import styles from './AppointmentDetailsView.styles';
 import { RoundedButton } from '../../common/buttons/';
-import { AntDesign, Entypo, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, Entypo, EvilIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 import { RoundedIcon } from '../../common/icons';
 import PropTypes from 'prop-types';
+import AppointmentService from '../../services/appointment/Appointment.service';
+import { colors } from '../../../theme';
 
 class AppointmentDetailsView extends Component {
+  handleSaveAppointment = async () => {
+    const { appointment } = this.props.route.params;
+    await AppointmentService.createAppointment({
+      turn: appointment.turn._id,
+      date: new Date()
+    });
+    this.props.navigation.navigate('Appointments');
+  };
+
+  handleDeleteAppointment = async () => {
+    const { appointment } = this.props.route.params;
+    const data = await AppointmentService.deleteAppointment(appointment._id);
+    if (data) {
+      this.props.navigation.navigate('Appointments');
+    }
+  };
+
   render() {
     const { appointment } = this.props.route.params;
+    const { loading } = this.props;
     return (
       appointment && (
         <View style={safeArea}>
@@ -89,17 +109,37 @@ class AppointmentDetailsView extends Component {
                     fontSize: 14
                   }}
                 />
-                <RoundedIcon bkColor="white" shadow={true} size={60}>
-                  <FontAwesome5 name="trash-alt" size={20} color="black" />
-                </RoundedIcon>
+                <TouchableOpacity onPress={this.handleDeleteAppointment}>
+                  <RoundedIcon bkColor="white" shadow={true} size={60}>
+                    <FontAwesome5 name="trash-alt" size={20} color="black" />
+                  </RoundedIcon>
+                </TouchableOpacity>
               </>
             ) : (
               <>
                 <RoundedButton
+                  isLoading={loading}
+                  buttonStyle={{
+                    backgroundColor: '#33c483'
+                  }}
+                  onPress={this.handleSaveAppointment}
                   label={'CONFIRMAR'}
-                  startIcon={<MaterialCommunityIcons name="alarm" size={20} color="white" />}
+                  startIcon={!loading ? <MaterialCommunityIcons name="alarm" size={20} color="white" /> : null}
                   textStyle={{
-                    fontSize: 14
+                    fontSize: 14,
+                    color: 'white'
+                  }}
+                />
+                <RoundedButton
+                  buttonStyle={{
+                    backgroundColor: 'white'
+                  }}
+                  label={'CANCELAR'}
+                  onPress={() => this.props.navigation.goBack()}
+                  startIcon={<EvilIcons name="close" size={20} color={colors.text} />}
+                  textStyle={{
+                    fontSize: 14,
+                    color: colors.text
                   }}
                 />
               </>
@@ -116,7 +156,9 @@ AppointmentDetailsView.propTypes = {
     params: PropTypes.object.isRequired
   })
 };
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  loading: state.appointment.loading
+});
 
 const mapDispatchToProps = {};
 

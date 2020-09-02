@@ -13,6 +13,7 @@ import AuthService from '../../modules/auth/Auth.service';
 import UserService from '../../services/user/User.service';
 import { showMessage } from 'react-native-flash-message';
 import withBackground from '../../common/background/Background';
+import { setTestInfo } from '../../utils/test.utils';
 
 export class LoginView extends Component {
   constructor(props) {
@@ -58,16 +59,29 @@ export class LoginView extends Component {
       <View style={safeArea}>
         <View style={{ marginTop: 80 }}>
           <Image source={logo} style={{ alignSelf: 'center', marginTop: 10, marginBottom: 40, width: 350, resizeMode: 'contain' }} />
-          <TextInput value={email} onChangeText={text => this.handleChange(text, 'email')} label="Email" />
-          <TextInput value={password} secureTextEntry onChangeText={text => this.handleChange(text, 'password')} label="Password" />
+          <TextInput
+            value={email}
+            onChangeText={text => this.handleChange(text, 'email')}
+            label="Email"
+            autoCapitalize="none"
+            {...setTestInfo('testInputLoginEmail')}
+          />
+          <TextInput
+            value={password}
+            autoCapitalize="none"
+            secureTextEntry
+            onChangeText={text => this.handleChange(text, 'password')}
+            label="Password"
+            {...setTestInfo('testInputLoginPassword')}
+          />
           <View style={{ marginVertical: 20, alignItems: 'center' }}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')} {...setTestInfo('testTouchableLoginRegisterLink')}>
               <Typography>
                 Don't have an account?, register <Typography color="secondary">here!</Typography>
               </Typography>
             </TouchableOpacity>
           </View>
-          <RoundedButton label="Login" onPress={this.handleLogin} isLoading={this.props.loading} />
+          <RoundedButton label="Login" onPress={this.handleLogin} isLoading={this.props.loading} {...setTestInfo('testTouchableLoginButton')} />
         </View>
       </View>
     );

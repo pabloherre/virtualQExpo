@@ -1,4 +1,5 @@
 import mockAsyncStorage from '@react-native-community/async-storage/jest/async-storage-mock';
+
 const mockfeathersMethods = {
   create: jest.fn(),
   update: jest.fn(),
@@ -22,9 +23,8 @@ jest.mock('../src/setup/feathersClient', () => {
     businessApi: mockfeathersMethods,
     categoryApi: mockfeathersMethods,
     turnApi: mockfeathersMethods,
-    authenticate: {
-      create: jest.fn()
-    }
+    authenticate: jest.fn(),
+    reAuthenticate: jest.fn()
   };
 });
 jest.mock('../src/services/user/User.service');

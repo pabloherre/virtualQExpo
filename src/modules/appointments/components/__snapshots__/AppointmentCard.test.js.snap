@@ -3,6 +3,7 @@
 exports[`<AppointmentCard /> should render correctly 1`] = `
 <ForwardRef
   accessibilityLabel="testTouchableAppointmentCard"
+  disabled={false}
   onPress={[Function]}
   style={
     Object {
@@ -22,7 +23,7 @@ exports[`<AppointmentCard /> should render correctly 1`] = `
       size="small"
       testID="testDateAppointmentDate"
     >
-      Tue Dec 31 2019 21:00:00 GMT-0300 (Argentina Standard Time)
+      December 31
     </Component>
     <Component
       accessibilityLabel="testTextAppointmentBusiness"

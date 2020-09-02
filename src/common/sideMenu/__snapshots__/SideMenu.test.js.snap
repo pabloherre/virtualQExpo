@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideMenu /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#e7eefb",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "rgb(216, 216, 216)",
+        "borderBottomWidth": 1,
+        "marginHorizontal": 20,
+        "paddingVertical": 20,
+      }
+    }
+  >
+    <Text />
+    <Text
+      style={
+        Object {
+          "color": undefined,
+          "fontSize": 14,
+        }
+      }
+    >
+      test@email
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "flex": 1,
+        "justifyContent": "flex-end",
+        "marginVertical": 10,
+        "width": 200,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="testButtonLogout"
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#f77027",
+          "borderRadius": 30,
+          "flexDirection": "row",
+          "height": 60,
+          "justifyContent": "space-around",
+          "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        }
+      }
+      testID="testButtonLogout"
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "paddingHorizontal": 10,
+          }
+        }
+      >
+        Logout
+      </Text>
+    </View>
+  </View>
+</View>
+`;

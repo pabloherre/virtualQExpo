@@ -1,4 +1,4 @@
-import { authenticate } from '../../setup/feathersClient';
+import { authenticate, reAuthenticate } from '../../setup/feathersClient';
 import AsyncStorage from '@react-native-community/async-storage';
 import store from '../../setup/store';
 import AuthService from './Auth.service';
@@ -11,13 +11,13 @@ describe('AuthService', () => {
   const result = { accessToken: '123', users: { name: 'test' } };
 
   beforeEach(() => {
-    authenticate.create.mockClear();
+    authenticate.mockClear();
     AsyncStorage.setItem.mockClear();
     dispatchSpy.mockClear();
   });
 
   it('should login successfully', async () => {
-    authenticate.create.mockReturnValueOnce(result);
+    authenticate.mockReturnValueOnce(result);
 
     await AuthService.login(credentials);
 
@@ -27,7 +27,7 @@ describe('AuthService', () => {
   });
 
   it('login should fail', async () => {
-    authenticate.create.mockImplementation(() => {
+    authenticate.mockImplementation(() => {
       throw new Error('');
     });
 
@@ -38,7 +38,7 @@ describe('AuthService', () => {
   });
 
   it('should fail if no credentials', async () => {
-    authenticate.create.mockImplementation(() => {
+    authenticate.mockImplementation(() => {
       throw new Error('Must provide valid credentials');
     });
 
@@ -48,11 +48,11 @@ describe('AuthService', () => {
     } catch (e) {
       expect(e.message).toBe('Must provide valid credentials');
     }
-    expect(authenticate.create).toHaveBeenCalledTimes(0);
+    expect(authenticate).toHaveBeenCalledTimes(0);
   });
 
   it('should reauthenticate if the token is present', async () => {
-    authenticate.create.mockReturnValueOnce(result);
+    reAuthenticate.mockReturnValueOnce(result);
 
     const user = await AuthService.reAuthenticate();
 
@@ -62,7 +62,7 @@ describe('AuthService', () => {
   });
 
   it('should fail on reauthenticate if token not present', async () => {
-    authenticate.create.mockImplementation(() => {
+    reAuthenticate.mockImplementation(() => {
       throw new Error('Cannot reauthenticate');
     });
 

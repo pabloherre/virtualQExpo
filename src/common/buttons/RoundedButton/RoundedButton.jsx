@@ -10,6 +10,7 @@ class RoundedButton extends Component {
 
   render() {
     const { label, onPress, buttonStyle, textStyle, startIcon, endIcon, isLoading, ...rest } = this.props;
+
     return (
       <TouchableOpacity style={{ ...styles.button, ...buttonStyle }} onPress={onPress} {...rest}>
         {startIcon}
@@ -32,7 +33,7 @@ RoundedButton.propTypes = {
   startIcon: PropTypes.element,
   endIcon: PropTypes.element,
   onPress: PropTypes.func,
-  isLoading: PropTypes.bool,
+  isLoading: PropTypes.bool
 };
 
 export default RoundedButton;

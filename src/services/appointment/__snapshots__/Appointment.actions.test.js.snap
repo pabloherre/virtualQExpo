@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideMenu actions should create an action to add an appointment event 1`] = `
+Object {
+  "type": "APPOINTMENT_ADD_SUCCESS",
+}
+`;
+
+exports[`SideMenu actions should create an action to find appointments 1`] = `
+Object {
+  "type": "APPOINTMENT_FIND_PENDING",
+}
+`;
+
+exports[`SideMenu actions should create an action to find appointments with fail 1`] = `
+Object {
+  "type": "APPOINTMENT_FIND_FAILED",
+}
+`;
+
+exports[`SideMenu actions should create an action to find appointments with success 1`] = `
+Object {
+  "payload": Object {
+    "name": "test",
+  },
+  "type": "APPOINTMENT_FIND_SUCCESS",
+}
+`;

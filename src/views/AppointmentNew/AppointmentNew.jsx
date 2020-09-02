@@ -13,7 +13,7 @@ import { colors } from '../../../theme';
 import debounce from '@react-navigation/stack/src/utils/debounce';
 import TurnService from '../../services/turn/Turn.service';
 import { showMessage } from 'react-native-flash-message';
-import AppointmentService from '../../services/appointment/Appointment.service';
+import { setTestInfo } from '../../utils/test.utils';
 
 export class AppointmentNew extends Component {
   constructor(props) {
@@ -47,13 +47,17 @@ export class AppointmentNew extends Component {
     const turn = await TurnService.findBusinessByCode(code);
     if (!turn) {
       showMessage({
-        message: "Can't find business turn",
-        description: 'Not found',
+        message: 'Invalid code',
+        description: 'Business not found',
         type: 'danger',
         icon: 'danger'
       });
     } else {
-      const appointment = AppointmentService.createAppointment(turn);
+      const appointment = {
+        turn,
+        date: Date.now()
+      };
+
       this.props.navigation.navigate('AppointmentDetails', { appointment });
     }
   };
@@ -82,13 +86,13 @@ export class AppointmentNew extends Component {
       <View style={safeArea}>
         <Typography>Type the store code or scan the QR code</Typography>
 
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row', marginTop: 20 }}>
           <View
             style={{
               flexDirection: 'row',
               flex: 2,
               alignItems: 'center',
-              borderColor: 'gray',
+              borderColor: colors.border,
               justifyContent: 'space-between',
               borderWidth: 1,
               borderRadius: 30,
@@ -96,14 +100,27 @@ export class AppointmentNew extends Component {
               paddingHorizontal: 10
             }}
           >
-            <TextInput style={{ flex: 8 }} value={searchValue} onChangeText={text => this.setState({ searchValue: text })} label="Code" />
-            <TouchableOpacity id="searchCode" style={{ flex: 1 }} onPress={() => this.handleCode(searchValue)}>
+            <TextInput
+              style={{ flex: 8 }}
+              value={searchValue}
+              onChangeText={text => this.setState({ searchValue: text })}
+              label="Code"
+              {...setTestInfo('testInputCode')}
+            />
+            <TouchableOpacity
+              id="searchCode"
+              style={{ flex: 1 }}
+              onPress={() => this.handleCode(searchValue)}
+              {...setTestInfo('testTouchableSearchCode')}
+            >
               <AntDesign name="right" size={20} color={colors.primary} />
             </TouchableOpacity>
           </View>
+
           <RoundedButton
             buttonStyle={{ flex: 1 }}
             label={'SCAN'}
+            {...setTestInfo('testTouchableScan')}
             onPress={async () => {
               if (!hasPermissions) {
                 const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -126,10 +143,14 @@ export class AppointmentNew extends Component {
         />
 
         <Typography>You can also find stores near you</Typography>
-        {Boolean(latitude) && Boolean(longitude) && (
-          <View style={{ borderRadius: 30, overflow: 'hidden', flex: 1 }}>
+
+        <View
+          style={{ borderRadius: 30, overflow: 'hidden', flex: 1, marginTop: 20, borderColor: colors.border, borderWidth: Boolean(latitude) ? 0 : 1 }}
+        >
+          {Boolean(latitude) && Boolean(longitude) && (
             <MapView
               style={{ padding: 20, flex: 1 }}
+              {...setTestInfo('testMapBusinessMap')}
               initialRegion={{
                 latitude,
                 longitude,
@@ -142,6 +163,7 @@ export class AppointmentNew extends Component {
                 return (
                   <Marker
                     key={business._id}
+                    {...setTestInfo('testMapBusinessMarker')}
                     onCalloutPress={() => {
                       this.handleCode(business.code);
                     }}
@@ -155,8 +177,8 @@ export class AppointmentNew extends Component {
                 );
               })}
             </MapView>
-          </View>
-        )}
+          )}
+        </View>
       </View>
     );
   }
