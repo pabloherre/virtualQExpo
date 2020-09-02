@@ -1,25 +1,20 @@
 import React from 'react';
-import SideMenu from './SideMenu';
-import { connectedMount, connectedRender } from '../../../jest/test-utils';
+import { Menu } from './SideMenu';
 import { SideMenuService } from './SideMenu.service';
 import UserService from '../../services/user/User.service';
 import AuthService from '../../modules/auth/Auth.service';
-
-const initialState = {
-  user: {
-    data: {
-      email: 'test@email'
-    }
-  }
-};
+import { shallow } from 'enzyme';
 
 const mockProps = {
   navigation: {
     navigate: jest.fn()
+  },
+  user: {
+    email: 'test@email'
   }
 };
 
-describe('<SideMenu />', () => {
+describe('<Menu />', () => {
   afterAll(() => {
     SideMenuService.closeMenu.mockClear();
     UserService.setUser.mockClear();
@@ -28,14 +23,14 @@ describe('<SideMenu />', () => {
   });
 
   it('renders correctly', async () => {
-    const button = connectedRender(<SideMenu />, initialState).toJSON();
+    const button = shallow(<Menu />);
     expect(button).toMatchSnapshot();
   });
 
   it('should logout on press button', async () => {
-    const wrapper = connectedMount(<SideMenu {...mockProps} />, initialState);
+    const wrapper = shallow(<Menu {...mockProps} />);
 
-    await wrapper.find("[testID='testButtonLogout']").first().props().onPress();
+    await wrapper.find("[testID='testTouchableLogout']").first().props().onPress();
 
     expect(SideMenuService.closeMenu).toHaveBeenCalled();
     expect(UserService.setUser).toHaveBeenCalled();

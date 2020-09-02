@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SideMenu /> renders correctly 1`] = `
+exports[`<Menu /> renders correctly 1`] = `
 <View
   style={
     Object {
@@ -21,17 +21,21 @@ exports[`<SideMenu /> renders correctly 1`] = `
       }
     }
   >
-    <Text />
-    <Text
+    <Icon
+      allowFontScaling={false}
+      color="#0db4e4"
+      name="user-circle"
+      size={120}
       style={
         Object {
-          "color": undefined,
-          "fontSize": 14,
+          "paddingBottom": 20,
         }
       }
-    >
-      test@email
-    </Text>
+    />
+    <Component
+      color="secondary"
+      size="small"
+    />
   </View>
   <View
     style={
@@ -44,45 +48,22 @@ exports[`<SideMenu /> renders correctly 1`] = `
       }
     }
   >
-    <View
-      accessibilityLabel="testButtonLogout"
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#f77027",
-          "borderRadius": 30,
-          "flexDirection": "row",
-          "height": 60,
-          "justifyContent": "space-around",
-          "opacity": 1,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        }
+    <RoundedButton
+      accessibilityLabel="testTouchableLogout"
+      buttonStyle={Object {}}
+      label="Logout"
+      onPress={[Function]}
+      startIcon={
+        <Icon
+          allowFontScaling={false}
+          color="white"
+          name="logout"
+          size={24}
+        />
       }
-      testID="testButtonLogout"
-    >
-      <Text />
-      <Text
-        style={
-          Object {
-            "color": "white",
-            "fontSize": 20,
-            "paddingHorizontal": 10,
-          }
-        }
-      >
-        Logout
-      </Text>
-    </View>
+      testID="testTouchableLogout"
+      textStyle={Object {}}
+    />
   </View>
 </View>
 `;

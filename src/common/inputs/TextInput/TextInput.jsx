@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TextInput as NativeTextInput } from 'react-native';
 import styles from './TextInput.styles';
+import { setTestInfo } from '../../../utils/test.utils';
 
 class TextInput extends Component {
   constructor(props) {

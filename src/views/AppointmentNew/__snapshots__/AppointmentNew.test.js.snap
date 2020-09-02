@@ -38,6 +38,7 @@ exports[`<AppointmentNew> should render correctly 1`] = `
       }
     >
       <Component
+        accessibilityLabel="testInputCode"
         allowFontScaling={true}
         label="Code"
         onChangeText={[Function]}
@@ -47,10 +48,12 @@ exports[`<AppointmentNew> should render correctly 1`] = `
             "flex": 8,
           }
         }
+        testID="testInputCode"
         underlineColorAndroid="transparent"
         value=""
       />
       <ForwardRef
+        accessibilityLabel="testTouchableSearchCode"
         id="searchCode"
         onPress={[Function]}
         style={
@@ -58,6 +61,7 @@ exports[`<AppointmentNew> should render correctly 1`] = `
             "flex": 1,
           }
         }
+        testID="testTouchableSearchCode"
       >
         <Icon
           allowFontScaling={false}
@@ -68,6 +72,7 @@ exports[`<AppointmentNew> should render correctly 1`] = `
       </ForwardRef>
     </View>
     <RoundedButton
+      accessibilityLabel="testTouchableScan"
       buttonStyle={
         Object {
           "flex": 1,
@@ -75,6 +80,7 @@ exports[`<AppointmentNew> should render correctly 1`] = `
       }
       label="SCAN"
       onPress={[Function]}
+      testID="testTouchableScan"
       textStyle={Object {}}
     />
   </View>

@@ -12,6 +12,7 @@ exports[`<AppointmentsView /> should render correctly 1`] = `
   }
 >
   <FlatList
+    accessibilityLabel="testListAppointmentsList"
     disableVirtualization={false}
     horizontal={false}
     initialNumToRender={10}
@@ -22,6 +23,7 @@ exports[`<AppointmentsView /> should render correctly 1`] = `
     removeClippedSubviews={false}
     renderItem={[Function]}
     scrollEventThrottle={50}
+    testID="testListAppointmentsList"
     updateCellsBatchingPeriod={50}
     windowSize={21}
   />
@@ -49,7 +51,9 @@ exports[`<AppointmentsView /> should render correctly 1`] = `
         size={64}
       >
         <ForwardRef
+          accessibilityLabel="testTouchableNewAppointmentButton"
           onPress={[Function]}
+          testID="testTouchableNewAppointmentButton"
         >
           <Icon
             allowFontScaling={false}

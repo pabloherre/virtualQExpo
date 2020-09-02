@@ -10,7 +10,7 @@ import { SideMenuService } from './SideMenu.service';
 import Typography from '../typography/Typography';
 import { setTestInfo } from '../../utils/test.utils';
 
-class Menu extends React.Component {
+export class Menu extends React.Component {
   onPress = async () => {
     SideMenuService.closeMenu();
     await AuthService.logout();
@@ -46,7 +46,7 @@ class Menu extends React.Component {
             startIcon={<SimpleLineIcons name="logout" size={24} color="white" />}
             label="Logout"
             onPress={this.onPress}
-            {...setTestInfo('testTouchableLogut')}
+            {...setTestInfo('testTouchableLogout')}
           />
         </View>
       </View>
