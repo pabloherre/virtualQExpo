@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideMenu Reducer should handle CLOSE MENU action 1`] = `
+Object {
+  "open": false,
+}
+`;
+
+exports[`SideMenu Reducer should handle OPEN MENU action 1`] = `
+Object {
+  "open": true,
+}
+`;
+
+exports[`SideMenu Reducer should should return initial state 1`] = `
+Object {
+  "open": false,
+}
+`;

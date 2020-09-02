@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Appointment Reducer should handle APPOINTMENT_FIND_FAILED action 1`] = `
+Object {
+  "data": null,
+  "error": true,
+  "loading": false,
+}
+`;
+
+exports[`Appointment Reducer should handle APPOINTMENT_FIND_PENDING action 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`Appointment Reducer should handle APPOINTMENT_FIND_SUCCESS action 1`] = `
+Object {
+  "data": Object {
+    "name": "test",
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`Appointment Reducer should handle APPOINTMENT_FIND_SUCCESS action 2`] = `
+Object {
+  "loading": false,
+}
+`;
+
+exports[`Appointment Reducer should should return initial state 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": false,
+}
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideMenu actions should create an action to close menu 1`] = `
+Object {
+  "type": "CLOSE_MENU",
+}
+`;
+
+exports[`SideMenu actions should create an action to open menu 1`] = `
+Object {
+  "type": "OPEN_MENU",
+}
+`;
