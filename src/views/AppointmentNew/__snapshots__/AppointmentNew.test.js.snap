@@ -18,6 +18,7 @@ exports[`<AppointmentNew> should render correctly 1`] = `
     style={
       Object {
         "flexDirection": "row",
+        "marginTop": 20,
       }
     }
   >
@@ -25,7 +26,7 @@ exports[`<AppointmentNew> should render correctly 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "borderColor": "gray",
+          "borderColor": "rgb(216, 216, 216)",
           "borderRadius": 30,
           "borderWidth": 1,
           "flex": 2,
@@ -91,5 +92,17 @@ exports[`<AppointmentNew> should render correctly 1`] = `
   <Component>
     You can also find stores near you
   </Component>
+  <View
+    style={
+      Object {
+        "borderColor": "rgb(216, 216, 216)",
+        "borderRadius": 30,
+        "borderWidth": 1,
+        "flex": 1,
+        "marginTop": 20,
+        "overflow": "hidden",
+      }
+    }
+  />
 </View>
 `;

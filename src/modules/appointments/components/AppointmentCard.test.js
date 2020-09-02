@@ -21,7 +21,7 @@ describe('<AppointmentCard />', () => {
 
   it('should have date', async () => {
     const el = wrapper.find("[testID='testDateAppointmentDate']");
-    expect(el.childAt(0).text()).toBe(new Date('2020-01-01').toString());
+    expect(el.childAt(0).text()).toBe('December 31');
   });
 
   it('should have business name', async () => {

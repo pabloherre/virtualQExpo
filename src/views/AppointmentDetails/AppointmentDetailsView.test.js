@@ -13,7 +13,11 @@ describe('<AppointmentDetailsView />', () => {
           }
         }}
       />,
-      {}
+      {
+        appointment: {
+          loading: false
+        }
+      }
     ).toJSON();
     expect(haveChildren.children.length).toBe(2);
   });
@@ -26,7 +30,12 @@ describe('<AppointmentDetailsView />', () => {
             appointment: appointment
           }
         }}
-      />
+      />,
+      {
+        appointment: {
+          loading: false
+        }
+      }
     );
     const detailCard = wrapper.find('AppointmentCard');
 
@@ -41,7 +50,12 @@ describe('<AppointmentDetailsView />', () => {
             appointment: appointment
           }
         }}
-      />
+      />,
+      {
+        appointment: {
+          loading: false
+        }
+      }
     );
     const detailCard = wrapper.find('MapView');
 

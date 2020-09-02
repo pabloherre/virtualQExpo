@@ -10,15 +10,21 @@ import { compose } from 'redux';
 import { AppointmentDefinition } from '../appointments.definitions';
 import { colors } from '../../../../theme';
 import { setTestInfo } from '../../../utils/test.utils';
+import moment from 'moment';
 
 export class AppointmentCard extends Component {
   render() {
     const { appointment, onPressCard } = this.props;
     return (
-      <TouchableOpacity style={styles.card} onPress={() => onPressCard && onPressCard(appointment)} {...setTestInfo('testTouchableAppointmentCard')}>
+      <TouchableOpacity
+        disabled={!appointment._id}
+        style={styles.card}
+        onPress={() => onPressCard && onPressCard(appointment)}
+        {...setTestInfo('testTouchableAppointmentCard')}
+      >
         <View>
           <Typography size="small" color="primary" {...setTestInfo('testDateAppointmentDate')}>
-            {appointment.date.toString()}
+            {moment(appointment.date).format('MMMM DD')}
           </Typography>
           <Typography {...setTestInfo('testTextAppointmentBusiness')} textStyles={{ fontWeight: 'bold' }}>
             {appointment.turn.business.name}
